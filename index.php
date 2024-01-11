@@ -30,7 +30,7 @@
                             <a href="logout.php">Logout</a>
                             <a href="show_profile.php">Show profile</a>
                             <a href="cart.php">Cart</a>
-                            <a href="crowdfunding.php">Support us</a>
+                            <a href="crowdfunding.php">Support uss</a>
                         </div>
                     </div>';
                 } else {
