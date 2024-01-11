@@ -1,0 +1,68 @@
+/* Add your styles here */
+body {
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per tutto il documento */
+    background: linear-gradient(to right, #E80000, #360000); /* Sfondo graduale */
+    color: #fff; /* Colore del testo */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(54, 0, 0, 0.8); /* Sfondo trasparente */
+    border-radius: 10px; /* Bordi arrotondati */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 24px; /* Dimensione del testo della tabella */
+    color: white;
+}
+
+.profile-table th, .profile-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Spaziatura interna maggiore */
+    text-align: left;
+}
+
+.profile-buttons {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.profile-buttons button {
+    margin-right: 10px; /* Aggiunto spazio tra i pulsanti */
+    display: inline-block;
+    padding: 10px 20px; /* Maggior spaziatura all'interno del pulsante */
+    font-size: 16px; /* Dimensione del testo del pulsante */
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per i pulsanti */
+    background-color: #4caf50; /* Colore di sfondo del pulsante */
+    color: #fff; /* Colore del testo del pulsante */
+    border: none;
+    border-radius: 5px; /* Bordi arrotondati */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Effetto di transizione del colore di sfondo */
+}
+
+.profile-buttons button:hover {
+    background-color: #45a049; /* Colore di sfondo del pulsante al passaggio del mouse */
+}
+
+@media (max-width: 600px) {
+    /* Stili per schermi più piccoli (mobile) */
+    .container {
+        padding: 10px;
+    }
+
+    .profile-table {
+        font-size: 14px;
+    }
+
+    .profile-buttons button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}

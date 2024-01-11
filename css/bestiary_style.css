@@ -1,0 +1,32 @@
+body {
+    background-color: #f1f1f1;
+    background-image: url("../Images/scroll.jpg");
+    font-family: "IM Fell English";
+}
+
+.w3-bar-block .w3-bar-item {
+    padding: 20px;
+}
+
+.w3-row-padding img {
+    margin-bottom: 10px; 
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "IM Fell English";
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    body {
+        background-image: none;
+    }
+
+    .w3-bar-block .w3-bar-item {
+        padding: 10px;
+    }
+
+    .w3-row-padding img {
+        margin-bottom: 5px;
+    }
+}

@@ -1,0 +1,83 @@
+body {
+    font-family: "IM Fell English";
+    font-size: 25px;
+    background-image: url('../Images/login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 40%;
+    min-width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(29, 25, 15, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.error,
+.success {
+    margin-bottom: 10px;
+}
+
+.submit-btn {
+    font-family: "IM Fell English";
+    position: relative;
+    margin-left: auto;
+    background-color: rgb(243,217,46);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: 2px solid #e78e12;
+    border-radius: 8px;
+    color: black;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    font-size: large;
+    cursor: pointer;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e78e12;
+}
+
+.submit-btn:hover {
+    background-color: #e78e12;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 20px;
+    }
+
+    .container {
+        max-width: 80%;
+        min-width: 70%;
+    }
+}

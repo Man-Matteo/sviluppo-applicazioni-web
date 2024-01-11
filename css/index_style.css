@@ -1,0 +1,379 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-family: "IM Fell English";
+  background-image: url("../Images/Baldur_s-Gate-Panorama-HP.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.title img {
+  width: 100%;
+}
+
+/* Stile degli elementi presenti nell'Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100%;
+}
+
+.search {
+  overflow: hidden;
+  width: 50%;
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+input[type=text] {
+  float: left;
+  padding: 6px;
+  border: 3px solid #273840;
+  border-radius: 10px;
+  margin-top: 2px;
+  margin-left: 5px;
+  margin-right: 2px;
+  outline: none;
+  font-size: 30px;
+  font-family: 'IM Fell English';
+  width: 100%;
+}
+
+button.dropbtn {
+  border-radius: 5px;
+  padding: 0px;
+  margin-top: 10px;
+  width: 90px;
+  height: 40px;
+  background: #9a0c0c;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #9a0c0c;
+  cursor: pointer;
+}
+
+button.login-button {
+  margin-top: -8px;
+  margin-left: 0;
+  padding: 7px 15px;
+  min-width: 80px;
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 5px;
+  float: left;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  width: 80px;
+  height: 40px;
+  background: #9a0c0c;
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid #9a0c0c;
+  cursor: pointer;
+}
+
+.dropbtn {
+  background-color: #3b3635;
+  border: 1px solid #435d69;
+  border-radius: 5px;
+  color: white;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'IM Fell English';
+  border: none;
+  cursor: pointer;
+}
+  
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #595c63;
+  border: 3px solid #435d69;
+}
+  
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+  
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-top: 50px;
+  z-index: 1;
+}
+
+.dropdown-content.show {
+  transition: margin-top 0.3s ease-out;
+}
+  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+  
+.dropdown-content a:hover {background-color: #f1f1f1}
+  
+.show {display:block;}
+
+.container {
+  display: flex;
+}
+
+.buttonContainer, .slideshow-container {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.buttonContainer {
+  display: flex;
+  position: relative;
+  margin: 2em 1em;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.menu {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: 'IM Fell English';
+  font-size: 26px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 5px;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 1em 2em;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 40%;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+.menu img {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .buttonContainer {
+    margin: 1em; /* Regola la distanza tra i pulsanti */
+  }
+
+  .menu {
+    width: 40%; /* Rendi i pulsanti larghi quanto il contenitore */
+  }
+
+  .menu img {
+    margin-right: 5px;
+  }
+
+  .buttonContainer,
+    .slideshow-container {
+        width: 100%; /* Rendi i contenitori larghi al 100% su schermi più piccoli */
+    }
+}
+
+@media (min-width: 768px) {
+  .menu {
+    padding: 19px 32px;
+  }
+}
+
+.menu:before,
+.menu:after {
+  border-radius: 2em;
+}
+
+.menu:before {
+  background-image: linear-gradient(92.83deg, #D89130 0, #E0A85B 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.menu:after {
+  background-color: initial;
+  background-image: linear-gradient(#BB5933 0, #934628 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.menu:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, #E0A85B 0, #D89130 100%);
+}
+
+.menu:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.menu:active:not(:disabled) {
+  color: #ccc;
+}
+
+.menu:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+}
+
+.menu:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.menu:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+ /*Slideshow container */
+ 
+.slideshow-container {
+position: relative;
+margin: 2em auto;
+max-width: 100%;
+z-index: 0;
+}
+
+.slideshow-container .mySlides img{
+  width: 100%;
+  height: auto;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Gestione Sbiadimento */
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.app-promotion {
+  position: relative;
+  top: 10%;
+  width: 90%;
+  max-width: 600px;
+  margin: 1em auto;
+  text-align: center;
+  font-size: x-large;
+  padding: 2%;
+  background-color: rgba(57, 49, 49, 0.8);
+  border-radius: 2em;
+
+  .app-promotion h2 {
+    margin-bottom: 10px;
+  }
+}
+
+/* Generale */
+
+form input {
+  display: block; 
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ba3131;
+  color: #fff;
+  border: none;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  text-align: center;
+  padding: 1em 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 10;
+  margin-top: auto;
+}

@@ -1,0 +1,68 @@
+body {
+  font-family: "IM Fell English";
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f3d92e; 
+  color: black;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+p {
+  font-size: 23px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "IM Fell English";
+  cursor: pointer;
+  background-color: #f3d92e; 
+  color: black;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #e0c622; 
+}
+
+@media screen and (max-width: 600px) {
+  table, th, td {
+      display: block;
+  }
+
+  th, td {
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+  button {
+      display: block;
+      margin-bottom: 10px;
+  }
+}
