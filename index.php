@@ -82,7 +82,7 @@
             <a href="https://www.apple.com/app-store/" target="_blank">
                 <img src="Images/App_Store_(iOS).svg.png" alt="Download dall'App Store" width="60" height="60">
             </a>
-            <a href="https://www.apple.com/app-store/" target="_blank">
+            <a href="https://play.google.com/store/apps?hl=it&gl=US&pli=1" target="_blank">
                 <img src="Images/playstore-icon.jpg" alt="Download dal Play Store" width="60" height="60">
             </a>
         </div>
