@@ -10,6 +10,12 @@
         <title>Order history</title>
     </head>
     <body>
+        <header>
+            <button type="button" onclick="location.href='index.php'">Home</button>
+            <div class="header">
+                <h1>Order history</h1>
+            </div>
+        </header>
         <?php
             session_start();
             require('functions.php');
@@ -33,7 +39,7 @@
             }
 
             try{
-                echo "<table align='center' border='5' width='400' height='150' bordercolor='grey'>";
+                echo "<table class='order-table'>";
                 echo "<tr><th>Order number</th><th>Product name</th><th>Price</th><th>Quantity</th><th>Date</th><th>Rating</th><th></th></tr>";
                 while ($row = $orderResult->fetch_assoc()) {
                     echo "<tr>";
@@ -52,9 +58,6 @@
                 echo "Profile data not found";   
             }
             $conn->close();
-            echo "<br>";
-            echo "<button type='button' onclick='location.href=\"show_profile.php\"'>Go back to profile</button>";
-            echo "";
         ?>
     </body>
 </html>
