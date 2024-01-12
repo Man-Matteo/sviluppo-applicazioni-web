@@ -43,12 +43,6 @@
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-
-            <div class="cart">
-                <button type ="submit" onclick="location.href='cart.php'">
-                    <img alt="Cart" src="Images/icon-cart.png" width="30px">
-            </button>
-            </div>
             
         </header>
 
@@ -57,6 +51,8 @@
                 <button class="menu" onclick="location.href='navbar/Bestiary/bestiary.php'"><img src="Images/bestiary_icon.png" alt="bestiary_icon" style="width:30px">Bestiary</button>
 
                 <button class="menu" onclick="location.href='navbar/Bestseller/bestseller.php'"><img src="Images/bestseller_icon.png" alt="bestseller_icon" style="width:30px">Bestseller</button>
+
+                <button class="menu" onclick="location.href='cart.php'"><img src="Images/icon-cart.png" alt="discount_icon" style="width:30px">Cart</button>
             
                 <button class="menu" onclick="location.href='navbar/Saved/saved.php'"><img src="Images/saved_icon.png" alt="saved_icon" style="width:30px">Saved</button>
             
