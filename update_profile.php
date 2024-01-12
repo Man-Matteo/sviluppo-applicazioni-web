@@ -54,49 +54,29 @@
 
                 if ($profileResult->num_rows == 1) {
                     while ($row = mysqli_fetch_assoc($profileResult)) {
-                        echo "<table>";
-                            echo "<tr>";
-                            echo "<td>First Name:</td>";
-                            echo "<td>" . $row['firstname'] . "</td>";
-                            echo "</tr>";
+                            echo "<form method='post'>";
+                                echo "<label for='firstname'>First Name:</label><br>";
+                                echo "<input type='text' id='firstname' name='firstname' value='" . $row['firstname'] . "'><br>";
 
-                            echo "<tr>";
-                            echo "<td>Last Name:</td>";
-                            echo "<td>" . $row['lastname'] . "</td>";
-                            echo "</tr>";
+                                echo "<label for='lastname'>Last Name:</label><br>";
+                                echo "<input type='text' id='lastname' name='lastname' value='" . $row['lastname'] . "'><br>";
 
-                            echo "<tr>";
-                            echo "<td>Email:</td>";
-                            echo "<td>" . $row['email'] . "</td>";
-                            echo "</tr>";
+                                echo "<label for='email'>Email:</label><br>";
+                                echo "<input type='text' id='email' name='email' value='" . $row['email'] . "'><br>";
 
-                        echo "</table>";
-                        echo "<br>";
+                                echo "<label for='city'>City:</label><br>";
+                                echo "<input type='text' id='city' name='city' value='" . $row['city'] . "'><br>";
 
-                        echo "<form method='post' align='center'>";
-                            echo "<label for='firstname'>First Name:</label><br>";
-                            echo "<input type='text' id='firstname' name='firstname' value='" . $row['firstname'] . "'><br>";
+                                echo "<label for='aboutme'>About Me:</label><br>";
+                                echo "<input type='text' id='aboutme' name='aboutme' value='" . $row['aboutme'] . "'><br>";
 
-                            echo "<label for='lastname'>Last Name:</label><br>";
-                            echo "<input type='text' id='lastname' name='lastname' value='" . $row['lastname'] . "'><br>";
+                                echo "<label for='social'>Social:</label><br>";
+                                echo "<input type='text' id='social' name='social' value='" . $row['social'] . "'><br>";
 
-                            echo "<label for='email'>Email:</label><br>";
-                            echo "<input type='text' id='email' name='email' value='" . $row['email'] . "'><br>";
-
-                            echo "<label for='city'>City:</label><br>";
-                            echo "<input type='text' id='city' name='city' value='" . $row['city'] . "'><br>";
-
-                            echo "<label for='aboutme'>About Me:</label><br>";
-                            echo "<input type='text' id='aboutme' name='aboutme' value='" . $row['aboutme'] . "'><br>";
-
-                            echo "<label for='Social'>Social:</label><br>";
-                            echo "<input type='text' id='social' name='social' value='" . $row['social'] . "'><br>";
-
-                            echo "<button type='submit' value='Save'>Save</button>";
-                            echo "<br>";
-                            echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
-                        echo "</form>";
-                        
+                                echo "<button type='submit' value='Save'>Save</button>";
+                                echo "<br>";
+                                echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
+                            echo "</form>";
                     }
                 } else 
                     echo "Profile data not found";   

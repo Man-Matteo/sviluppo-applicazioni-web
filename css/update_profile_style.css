@@ -12,13 +12,16 @@ body {
     padding: 20px;
 }
 
-table {
-    border: 5px;
+.profile-table {
     width: 100%;
-    height: 150px;
     border-collapse: collapse;
-    border-color: white;
     margin-bottom: 20px;
+    font-size: 24px; /* Dimensione del testo della tabella */
+    color: white;
+}
+
+form {
+    align-items: center;
 }
 
 table, th, td {
