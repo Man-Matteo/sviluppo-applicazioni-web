@@ -94,15 +94,6 @@ button {
   cursor: pointer;
 }
 
-.cart {
-  width: 30px;
-  margin-top: -8px;
-}
-
-.cart img {
-  width: 30px;
-}
-
 .dropbtn {
   background-color: #3b3635;
   border: 1px solid #435d69;
