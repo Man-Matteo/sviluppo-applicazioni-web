@@ -43,12 +43,6 @@
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-
-            <div class="cart">
-                <button type ="submit" onclick="location.href='cart.php'">
-                    <img alt="Cart" src="Images/icon-cart.png" width="30px">
-            </button>
-            </div>
             
         </header>
 
