@@ -62,28 +62,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="css/update_password_style.css">
     <script src="logout.js"></script>
     <title>Update Password</title>
 </head>
 <body>
-    <h2>Update Password</h2>
-
+    <header>
+        <button type="button" onclick="location.href='index.php'">Home</button>
+        <div class="header">
+            <h1>Update Password</h1>
+        </div>
+    </header>
     <?php if (isset($error_message)) : ?>
         <p style="color: red;"><?php echo $error_message; ?></p>
     <?php endif; ?>
+    
+    <div class="container">
+        <form method="post" action="update_password.php">
 
-    <form method="post" action="update_password.php">
+            <label for="old_password">Old password:</label>
+            <input type="password" name="old_password" required><br>
 
-        <label for="old_password">Old password:</label>
-        <input type="password" name="old_password" required><br>
+            <label for="new_password">New password:</label>
+            <input type="password" name="new_password" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required><br>
+            
+            <label for="confirm_password">Confirm new password:</label>
+            <input type="password" name="confirm_password" required><br>
 
-        <label for="new_password">New password:</label>
-        <input type="password" name="new_password" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required><br>
-        
-        <label for="confirm_password">Confirm new password:</label>
-        <input type="password" name="confirm_password" required><br>
-
-        <input type="submit" value="Update password">
-    </form>
+            <input type="submit" value="Update password">
+        </form>
+    </div>
 </body>
 </html>
