@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style_order_storage.css">
         <link rel="stylesheet" href="css/style_rating.css">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM Fell English">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="logout.js"></script>
@@ -17,7 +17,7 @@
         ?>
         <h1>Rate your product from 1 to 5 stars</h1><br>
         <form action='rating.php' method='post'>
-            <input type='hidden' id='order_id' name='order_id' value='<?php echo $order_id; ?>' readonly><br>
+            <input type='hidden' id='order_id' name='order_id' value='<?php echo $order_id; ?>'><br>
             <label for='evaluation'>Rating:</label><br>
             <div class="star-rating">
                 <div class="star-rating__wrap">
@@ -37,7 +37,7 @@
             <button type='submit' value='submit'>Rate</button>
         </form>
         <br>
-        <a href="order_storage.php"><button type='submit'>Go back to order history</button></a>
+        <button class="menu" onclick="location.href='order_storage.php'">Go back to order history</button>
         
     </body>
 </html>

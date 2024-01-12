@@ -40,7 +40,7 @@
     ?>
         <div id="donation-form">
             <h2>Donation</h2>
-            <form id="donation-form" action="crowdfunding_process.php" method="post">
+            <form id="crowdfunding-form" action="crowdfunding_process.php" method="post">
                 <label for="firstname">Firstname:</label>
                 <input type="text" id="firstname" name="firstname" required><br>
 
