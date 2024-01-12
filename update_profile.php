@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- css di un'altra pagina qui? -->
-        <link rel="stylesheet" href="css/order_storage_style.css">
+        <link rel="stylesheet" href="css/update_profile_style.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="logout.js"></script>
@@ -54,7 +54,7 @@
 
                 if ($profileResult->num_rows == 1) {
                     while ($row = mysqli_fetch_assoc($profileResult)) {
-                        echo "<table border='5' width='200' height='150' bordercolor='white'>";
+                        echo "<table>";
                             echo "<tr>";
                             echo "<td>First Name:</td>";
                             echo "<td>" . $row['firstname'] . "</td>";
