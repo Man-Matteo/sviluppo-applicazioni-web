@@ -21,6 +21,7 @@ body {
 
 .title img {
   width: 100%;
+  height: auto;
 }
 
 /* Stile degli elementi presenti nell'Header */
