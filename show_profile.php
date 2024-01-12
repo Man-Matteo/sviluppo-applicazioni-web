@@ -9,6 +9,12 @@
         <title>Profile</title>
     </head>
     <body>
+        <header>
+            <button type="button" onclick="location.href='index.php'">Home</button>
+            <div class="header">
+                <h1>Account Profile</h1>
+            </div>
+        </header>
         <div class="container">
             <?php
                 session_start();
@@ -52,7 +58,6 @@
                         echo "<button type='button' onclick='location.href=\"update_password.php\"'>Modify password</button>";
                         echo "<button type='submit' onclick='location.href=\"order_storage.php\"'>Order history</button>";
                         echo "<button type='submit' onclick='location.href=\"logout.php\"'>Logout</button>";
-                        echo "<button type='submit' onclick='location.href=\"index.php\"'>Home</button>";
                         
                         echo "</div>";
 
