@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM Fell English">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="css/cart_style.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="logout.js"></script>
@@ -28,7 +28,7 @@
             //controllo valore di ritorno
 
             if ($cartResult && $cartResult->num_rows > 0) {
-                echo "<table border='1'>";
+                echo "<table>";
                 echo "<tr><th>Product</th><th>Price</th><th>Quantity</th><th>Action</th></tr>";
 
                 $total = 0;
