@@ -16,7 +16,7 @@
         <header>
             <div class="title">
                 <a href="index.php">
-                    <img border="0" alt="Title" src="Images/title_white.png">
+                    <img alt="Title" src="Images/title_white.png">
                 </a>
             </div>
             
