@@ -1,15 +1,60 @@
+/* Add your styles here */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    color: black;
-    margin: 0;
-    padding: 0;
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per tutto il documento */
+    background: linear-gradient(to right, #E80000, #360000); /* Sfondo graduale */
+    color: #fff; /* Colore del testo */
+}
+
+header {
+    background-color: rgb(255, 165, 0, 0.4); /* Colore di sfondo dell'intestazione */
+    border-radius: 10px; /* Bordi arrotondati */
+    padding: 5px; /* Spaziatura interna */
+    text-align: center;
+    font-size: 20px; /* Dimensione del testo */
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per l'intestazione */
+    color: black; /* Colore del testo */
+    margin-bottom: 5px;
+    line-height: 1.5; /* Altezza della riga */
+}
+
+button {
+    display: block;
+    margin-left: 0;
+    padding: 10px 20px; /* Maggior spaziatura all'interno del pulsante */
+    font-size: 18px; /* Dimensione del testo del pulsante */
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per i pulsanti */
+    background-color: #FFA500; /* Colore di sfondo del pulsante */
+    color: black; /* Colore del testo del pulsante */
+    border: none;
+    border-radius: 5px; /* Bordi arrotondati */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Effetto di transizione del colore di sfondo */
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background: rgba(54, 0, 0, 0.8); /* Sfondo trasparente */
+    border-radius: 10px; /* Bordi arrotondati */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+.profile-table label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 20px; /* Dimensione del testo */
+}
+
+.profile-table input {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #000;
 }
 
 .profile-table {
@@ -20,39 +65,43 @@ body {
     color: white;
 }
 
-form {
-    align-items: center;
-}
-
-table, th, td {
-    border: 1px solid #dddddd;
-}
-
-th, td {
-    padding: 15px;
+.profile-table th, .profile-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Spaziatura interna maggiore */
     text-align: left;
 }
 
-th {
-    background-color: #f2f2f2;
-}
-
-button, a.button {
-    display: inline-block;
-    padding: 10px 20px;
+.profile-table button {
+    margin-right: 10px; /* Aggiunto spazio tra i pulsanti */
     margin-top: 10px;
-    background-color: #4caf50;
-    color: white;
-    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px; /* Maggior spaziatura all'interno del pulsante */
+    font-size: 18px; /* Dimensione del testo del pulsante */
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per i pulsanti */
+    background-color: #FFA500; /* Colore di sfondo del pulsante */
+    color: black; /* Colore del testo del pulsante */
     border: none;
-    border-radius: 5px;
+    border-radius: 5px; /* Bordi arrotondati */
     cursor: pointer;
+    transition: background-color 0.3s; /* Effetto di transizione del colore di sfondo */
 }
 
-a.button {
-    background-color: #2196f3;
+.profile-table button:hover {
+    background-color: #FF8C00; /* Cambia il colore di sfondo al passaggio del mouse */
 }
 
-button:hover, a.button:hover {
-    background-color: #45a049;
+@media (max-width: 600px) {
+    /* Stili per schermi più piccoli (mobile) */
+    .container {
+        padding: 10px;
+    }
+
+    .profile-table {
+        font-size: 14px;
+    }
+
+    .profile-buttons button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
 }

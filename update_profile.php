@@ -11,6 +11,12 @@
         <title>Update Profile</title>
     </head>
     <body>
+        <header>
+            <button type="button" onclick="location.href='index.php'">Home</button>
+            <div class="header">
+                <h1>Update Profile</h1>
+            </div>
+        </header>
         <?php
             session_start();
             require 'functions.php';
@@ -53,6 +59,7 @@
                     die("error in collect profile data query");
 
                 if ($profileResult->num_rows == 1) {
+                    echo "<div class='profile-table'>";
                     while ($row = mysqli_fetch_assoc($profileResult)) {
                             echo "<form method='post'>";
                                 echo "<label for='firstname'>First Name:</label><br>";
@@ -78,6 +85,7 @@
                                 echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
                             echo "</form>";
                     }
+                    echo "</div>";
                 } else 
                     echo "Profile data not found";   
             } catch (Exception $e) {
