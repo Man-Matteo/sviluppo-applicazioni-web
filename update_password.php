@@ -73,11 +73,13 @@
     <?php endif; ?>
 
     <form method="post" action="update_password.php">
+
         <label for="old_password">Old password:</label>
         <input type="password" name="old_password" required><br>
 
         <label for="new_password">New password:</label>
         <input type="password" name="new_password" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required><br>
+        
         <label for="confirm_password">Confirm new password:</label>
         <input type="password" name="confirm_password" required><br>
 
