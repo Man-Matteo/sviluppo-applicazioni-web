@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM Fell English">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="css/order_storage_style.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="logout.js"></script>
@@ -34,7 +34,7 @@
 
             try{
                 echo "<table align='center' border='5' width='400' height='150' bordercolor='grey'>";
-                echo "<tr><th>Order number</th><th>Product name</th><th>Price</th><th>Quantity</th><th>Date</th><th>Rating</th></tr>";
+                echo "<tr><th>Order number</th><th>Product name</th><th>Price</th><th>Quantity</th><th>Date</th><th>Rating</th><th></th></tr>";
                 while ($row = $orderResult->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>{$row['orderId']}</td>";
@@ -43,7 +43,7 @@
                     echo "<td>{$row['quantity']}</td>";
                     echo "<td>{$row['date']}</td>";
                     echo "<td>{$row['rating']}</td>";
-                    echo "<td><button type='button' id='get_eval' onclick='location.href=\"update_rating.php?orderId={$row['orderId']}\"'>Rate your products</button></td>";
+                    echo "<td><button type='button' onclick='location.href=\"update_rating.php?orderId={$row['orderId']}\"'>Rate your products</button></td>";
                     echo "</tr>";
                 }
                 echo "</table>";
@@ -53,7 +53,7 @@
             }
             $conn->close();
             echo "<br>";
-            echo "<td><button type='button' onclick='location.href=\"show_profile.php\"'>Go back to profile</button>";
+            echo "<button type='button' onclick='location.href=\"show_profile.php\"'>Go back to profile</button>";
             echo "";
         ?>
     </body>
