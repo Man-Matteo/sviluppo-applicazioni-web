@@ -30,7 +30,7 @@
                             <a href="logout.php">Logout</a>
                             <a href="show_profile.php">Show profile</a>
                             <a href="cart.php">Cart</a>
-                            <a href="crowdfunding.php">Support uss</a>
+                            <a href="crowdfunding.php">Support us</a>
                         </div>
                     </div>';
                 } else {
@@ -43,6 +43,12 @@
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
+
+            <div class="cart">
+                <button type ="submit" role="button" onclick="location.href='cart.php'">
+                    <img alt="Cart" src="Images/icon-cart.png" width="30px" style="align:center">
+            </button>
+            </div>
             
         </header>
 
