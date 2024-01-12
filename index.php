@@ -5,12 +5,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/index_style.css">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bilbo Swash Caps">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="logout.js"></script>
         <title>Cancelli di Baldur</title>
-        <link rel="shortcut icon" href="Images/DnD-Symbol.png" />
+        <link rel="shortcut icon" href="Images/DnD-Symbol.png">
     </head>
     <body>
         <header>
@@ -45,7 +45,7 @@
             </form>
 
             <div class="cart">
-                <button type ="submit" role="button" onclick="location.href='cart.php'">
+                <button type ="submit" onclick="location.href='cart.php'">
                     <img alt="Cart" src="Images/icon-cart.png" width="30px" style="align:center">
             </button>
             </div>

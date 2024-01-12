@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM Fell English">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../../css/bestiary_style.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="../../logout.js"></script>
@@ -46,7 +46,7 @@
                     // Stampa i prodotti
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="w3-quarter" style="margin: 5px;">';
-                        echo "<img src='../../{$row['image']}' alt='{$row['name']}' style='width:100%; border: 3px solid #000; border-radius: 10px; box-shadow: 10px 5px 8px black;'>";
+                        echo "<img src='../../{$row["image"]}' alt='{$row["name"]}' style='width:100%; border: 3px solid #000; border-radius: 10px; box-shadow: 10px 5px 8px black;'>";
                         echo "<h3>{$row['name']}</h3>";
                         echo "<p style='color:white; font-size: 16px; background-color: #1a2576;'>{$row['description']}</p>";
                         echo "<p>Price: €{$row['price']}</p>";

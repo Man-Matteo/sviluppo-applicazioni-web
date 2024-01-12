@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>About us</title>
         <link rel="stylesheet" href="../../css/about_us_style.css">
