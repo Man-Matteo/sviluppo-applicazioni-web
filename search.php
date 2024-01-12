@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM Fell English">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="css/order_storage_style.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="logout.js"></script>
@@ -24,15 +24,14 @@
                 die("error in search query");
 
             if ($searchResult->num_rows > 0) {
-                echo '<link rel="stylesheet" href="css/style_order_storage.css">';
                     echo "<table>";
-                    echo "<tr><th>Name</th><th>Price</th><th>Description</th><th>Image</th><th>Select quantity</th></tr>";
+                    echo "<tr><th>Name</th><th>Price</th><th>Description</th><th>Image</th><th>Select quantity</th><th></th></tr>";
                 while($row = $searchResult->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>{$row['name']}</td>";
                     echo "<td>{$row['price']}</td>";
                     echo "<td>{$row['description']}</td>";
-                    echo "<td><img src='{$row['image']}' width='100' height='100'></td>";
+                    echo "<td><img src='{$row['image']}' width='100' height='100' alt='search result image'></td>";
                     echo '<td><input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="100" value="1"></td>';
                     echo "<td><button onclick='addToCart({$row['productId']})'>Add to cart</button></td>";
                     echo "</tr>";

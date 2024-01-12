@@ -30,7 +30,6 @@
                     if(!$profileResult)
                         die("error in profile query");
 
-
                     if ($profileResult->num_rows == 1) {
                         echo "<table class='profile-table'>";
                         while ($row = mysqli_fetch_assoc($profileResult)) {

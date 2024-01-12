@@ -55,13 +55,9 @@
         <div class="container">
             <div class="buttonContainer">
                 <button class="menu" onclick="location.href='navbar/Bestiary/bestiary.php'"><img src="Images/bestiary_icon.png" alt="bestiary_icon" style="width:30px">Bestiary</button>
-
                 <button class="menu" onclick="location.href='navbar/Bestseller/bestseller.php'"><img src="Images/bestseller_icon.png" alt="bestseller_icon" style="width:30px">Bestseller</button>
-            
                 <button class="menu" onclick="location.href='navbar/Saved/saved.php'"><img src="Images/saved_icon.png" alt="saved_icon" style="width:30px">Saved</button>
-            
                 <button class="menu" onclick="location.href='navbar/About_us/about_us.php'"><img src="Images/about_us_icon.png" alt="about_us_icon" style="width:30px">About us</button>
-            
                 <button class="menu" onclick="location.href='navbar/Contact_us/contact_us.php'"><img src="Images/contact_us_icon.png" alt="contact_us_icon" style="width:30px">Contact us</button>
             </div>
 

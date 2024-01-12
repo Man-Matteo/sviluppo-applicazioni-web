@@ -1,17 +1,12 @@
 <?php
-    // Avvia la sessione (se non è già stata avviata)
     session_start();
     require 'functions.php';
-    // Controlla se l'utente è loggato, altrimenti reindirizza alla pagina di login
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header("Location: login.php");
         exit();
     }
 
-    //connessione al database
-    
     $conn = readWriteConnection();
-
 
     // Ottieni l'ID dell'utente dalla sessione
     $userEmail = $_SESSION['username'];
@@ -25,15 +20,6 @@
         die("erorr in old pass query");
     $row = $passResult->fetch_assoc();
     $current_password_hash = $row['password'];
-
-    /*
-    $stmt = $conn->prepare("SELECT password FROM users WHERE email = ?");
-    $stmt->bind_param("s", $userEmail);
-    $stmt->execute();
-    $stmt->bind_result($current_password_hash);
-    $stmt->fetch();
-    $stmt->close();
-    */
 
     // Verifica se il modulo è stato inviato
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -86,7 +72,7 @@
         <p style="color: red;"><?php echo $error_message; ?></p>
     <?php endif; ?>
 
-    <form method="post" action="">
+    <form method="post" action="update_password.php">
         <label for="old_password">Old password:</label>
         <input type="password" name="old_password" required><br>
 
