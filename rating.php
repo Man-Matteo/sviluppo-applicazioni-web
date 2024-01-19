@@ -19,28 +19,40 @@
             $rating = $_POST['rating'];
             $userEmail = $_SESSION['username'];
 
-            $ratingQuery = "UPDATE orders SET rating = ? WHERE orderId = ? ";
-            $ratingElem = array($rating, $order_id);
-            $ratingParams = "ii";
-            $ratingResult = execStmt($conn, $ratingQuery, $ratingElem, $ratingParams);
+            try{
 
-            if (!$ratingResult) {
-                die("Error in rating query 1");
-            }else {
-                echo "Thank You for your vote!!!";
+                $conn -> begin_transaction();
+
+                $ratingQuery = "UPDATE orders SET rating = ? WHERE orderId = ? ";
+                $ratingElem = array($rating, $order_id);
+                $ratingParams = "ii";
+                $ratingResult = execStmt($conn, $ratingQuery, $ratingElem, $ratingParams);
+
+                if (!$ratingResult) {
+                    die("Error in rating query 1");
+                }else {
+                    echo "Thank You for your vote!!!";
+                }
+            
+                $updateRateQuery = "SELECT productId FROM orders WHERE email = ? AND orderId = ?";
+                $updateRateElem = array($userEmail,$order_id);
+                $updateRateParams = "si";
+                $updateRateResult = execStmt($conn, $updateRateQuery, $updateRateElem, $updateRateParams);
+
+                $conn -> commit();
+            
+                if (!$updateRateResult) 
+                    die("Error in rating query 2");
+            
+                while($row = $updateRateResult -> fetch_assoc()){
+                    updateRating($row['productId']);
+                }
+            }catch(Exception $e){
+                $conn -> rollback();
+                echo "Error in rating query 3";
             }
+
             
-            $updateRateQuery = "SELECT productId FROM orders WHERE email = ?";
-            $updateRateElem = array($userEmail);
-            $updateRateParams = "s";
-            $updateRateResult = execStmt($conn, $updateRateQuery, $updateRateElem, $updateRateParams);
-            
-            if (!$updateRateResult) 
-                die("Error in rating query 2");
-            
-            while($row = $updateRateResult -> fetch_assoc()){
-                updateRating($row['productId']);
-            }
             $conn->close();
         ?>
         <br>
