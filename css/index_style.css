@@ -20,7 +20,7 @@ body {
 }
 
 .title img {
-  width: 60%;
+  width: 70%;
   height: auto;
 }
 
@@ -78,7 +78,7 @@ button.dropbtn {
 }
 
 button.login-button {
-  margin-top: -8px;
+  margin-top: 8px;
   margin-left: 0;
   padding: 7px 15px;
   min-width: 80px;
@@ -368,6 +368,7 @@ form input {
 button {
   padding: 10px 20px;
   background-color: #ba3131;
+  margin-bottom: 20px;
   color: #fff;
   border: none;
 }

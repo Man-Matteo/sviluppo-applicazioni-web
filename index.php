@@ -15,11 +15,14 @@
     <body>
         <header>
             <div class="title">
-                <a href="index.php">
-                    <img alt="Title" src="Images/title_white.png">
-                </a>
+                <img alt="Title" src="Images/title_white.png">
             </div>
-            
+
+            <form class="search" action="search.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+
             <?php
                 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
                     // Utente loggato, mostra il menu completo
@@ -38,11 +41,6 @@
                     echo '<button type="submit" class="dropbtn login-button" onclick="location.href=\'login.php\'">Login</button>';
                 }
             ?>
-
-            <form class="search" action="search.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
             
         </header>
 
