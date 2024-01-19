@@ -20,8 +20,14 @@ body {
 }
 
 .title img {
-  width: 100%;
+  width: 60%;
   height: auto;
+}
+
+.title {
+  display: flex;
+  flex: 1;
+  align-items: center;
 }
 
 /* Stile degli elementi presenti nell'Header */
@@ -34,28 +40,28 @@ header {
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
+  background-color: rgba(32, 28, 28, 0.5);
 }
 
 .search {
   overflow: hidden;
-  width: 50%;
   margin: 1em;
+  margin-left: 20px;
   display: flex;
   flex-direction: row;
+  flex: 1;
+  align-items: center; /* Aggiunto per centrare verticalmente la barra di ricerca */
 }
 
 input[type=text] {
-  float: left;
   padding: 6px;
   border: 3px solid #273840;
   border-radius: 10px;
-  margin-top: 2px;
   margin-left: 5px;
   margin-right: 2px;
   outline: none;
   font-size: 30px;
   font-family: 'IM Fell English';
-  width: 100%;
 }
 
 button.dropbtn {
@@ -85,7 +91,7 @@ button {
   padding: 10px;
   margin-top: 10px;
   margin-left: auto;
-  width: 80px;
+  width: 60px;
   height: 40px;
   background: #9a0c0c;
   color: #fff;
