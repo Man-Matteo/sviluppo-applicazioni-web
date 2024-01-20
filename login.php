@@ -43,7 +43,7 @@
                         $storedEmail = $row['email'];
                         $storedPassword = $row['password'];
 
-                        if (($result->num_rows > 0) && (password_verify($password, $storedPassword))) {
+                        if (($result->num_rows === 1) && (password_verify($password, $storedPassword))) {
 
                             session_start();
                             $_SESSION['logged_in'] = true;

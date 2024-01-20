@@ -23,11 +23,7 @@
             $insertResult = execStmt($conn, $insertQuery, $insertElem, $insertParams);
             if (!$insertResult)
                 die("error in insert query");
-            /*
-            if (!$insertResult->affected_rows) {
-                die("Error in updating cart: " . $insertResult->error);
-            }
-            */
+
         }
     }
 

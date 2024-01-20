@@ -53,7 +53,7 @@
                         die('<div class="error">Error in check query.</div>');
         
 
-                    if ($checkResult->num_rows > 0) 
+                    if ($checkResult->num_rows === 1) 
                         die('<div class="error">Error: email not available.</div>');
                     
 
