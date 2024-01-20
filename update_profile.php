@@ -49,6 +49,7 @@
                         die("error in update profile data query");
 
                     header("Location: show_profile.php");
+                    exit();
                 }
 
                 $profileQuery = "SELECT firstname, lastname, email, password, city, aboutme, social FROM users WHERE email = ?";

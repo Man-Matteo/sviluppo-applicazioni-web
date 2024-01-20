@@ -18,6 +18,7 @@
                 $userEmail = $_SESSION['username'];
             else
                 header('Location: http://localhost/login.php');
+                exit();
             try {
                 $conn->begin_transaction();
             
