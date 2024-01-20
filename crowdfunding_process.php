@@ -26,9 +26,8 @@
     $insertDonationQuery = "INSERT INTO crowdfunding (email, firstname, lastname, donation_amount) VALUES (?, ?, ?, ?)";
     $insertDonationParams = "sssi";
     $insertDonationElements = array($username, $firstname, $lastname, $donation_amount);
-    $insertDonationResult = execStmt($conn, $insertDonationQuery, $insertDonationElements, $insertDonationParams);
-    if (!$insertDonationResult)
-        die("Error in donation query");
+    if (!execStmt($conn, $insertDonationQuery, $insertDonationElements, $insertDonationParams))
+        die("something went wrong");
 
     $conn->close();
    

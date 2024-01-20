@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/order_storage_style.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM Fell English">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="logout.js"></script>
         <title>Update Rating</title>
     </head>
     <body>
@@ -27,9 +25,8 @@
                 $ratingQuery = "UPDATE orders SET rating = ? WHERE orderId = ? ";
                 $ratingElem = array($rating, $order_id);
                 $ratingParams = "ii";
-                $ratingResult = execStmt($conn, $ratingQuery, $ratingElem, $ratingParams);
-                if (!$ratingResult) {
-                    die("Error in rating query 1");
+                if (!execStmt($conn, $ratingQuery, $ratingElem, $ratingParams)) {
+                    die("something went wrong with the rating query");
                 }else {
                     echo "Thank You for your vote!!!";
                 }
@@ -39,7 +36,7 @@
                 $updateRateParams = "si";
                 $updateRateResult = execStmt($conn, $updateRateQuery, $updateRateElem, $updateRateParams);
                 if (!$updateRateResult) 
-                    die("Error in rating query 2");
+                    die("something went wrong with the update query");
 
                 $conn -> commit();
             
@@ -48,7 +45,7 @@
                 }
             }catch(Exception $e){
                 $conn -> rollback();
-                echo "Error in rating query 3";
+                echo "something went wrong with the transaction";
             }
             
             $conn->close();

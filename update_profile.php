@@ -6,8 +6,6 @@
         <!-- css di un'altra pagina qui? -->
         <link rel="stylesheet" href="css/update_profile_style.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="logout.js"></script>
         <title>Update Profile</title>
     </head>
     <body>
@@ -44,13 +42,11 @@
                     $newAboutme = !empty($_POST['aboutme']) ? $_POST['aboutme'] : null;
                     $newSocial = !empty($_POST['social']) ? $_POST['social'] : null;
 
-                    // CONTROLLI ERRORI PREPARE STATEMENT
                     $updateQuery = "UPDATE users SET firstname = ?, lastname = ?, email = ?, city = ?, aboutme = ?, social = ? WHERE email = ?";
                     $updateParams = "sssssss";
                     $updateElem = array($newFirstname, $newLastname, $newEmail ,$newCity, $newAboutme, $newSocial, $userEmail);
-                    $updateResult = execStmt($conn, $updateQuery, $updateElem, $updateParams);
-                    if(!$updateResult AND $updateResult != 0)
-                        die("error in update profile data query");
+                    if(!execStmt($conn, $updateQuery, $updateElem, $updateParams))
+                        die("Something went wrong with the update query");
 
                     header("Location: show_profile.php");
                     exit();

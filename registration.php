@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="css/registration_style.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="logout.js"></script>
         <title>Registration</title>
     </head>
     <body>
@@ -72,7 +70,7 @@
                 <input type="text" name="lastname" pattern="\w{2,16}" title="The surname must contain at least 2 alphanumeric characters" required>
 
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" pattern="\w+@\w+\.\w+" title="Enter a valid email address." required>
+                <input type="email" name="email" id="email" title="Enter a valid email address." required>
 
                 <label for="pass">Password</label>
                 <input type="password" name="pass" id="pass" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required>

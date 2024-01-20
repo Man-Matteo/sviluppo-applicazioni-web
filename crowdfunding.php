@@ -81,16 +81,15 @@
         }
 
         function checkDonationAmount(input) {
-            var maxDonation = 10000; // Modifica il valore massimo consentito secondo le tue esigenze
+            var maxDonation = 10000; 
 
             var donationAmount = parseFloat(input.value);
 
-            if (isNaN(donationAmount) || donationAmount < 0) {
+            if (isNaN(donationAmount) || donationAmount < 0) 
                 alert("Please enter a valid positive donation amount.");
-                input.value = ""; // Cancella il campo in caso di importo non valido
-            } else if (donationAmount > maxDonation) {
+            else if (donationAmount > maxDonation) {
                 alert("Maximum donation amount exceeded. The maximum allowed is $" + maxDonation + ".");
-                input.value = maxDonation; // Imposta l'importo massimo consentito
+                input.value = maxDonation;
             } else if (donationAmount + <?php echo $total; ?> > maxDonation) {
                 alert("Exceeding the maximum threshold.");
                 input.value = maxDonation - <?php echo $total; ?>; // Imposta l'importo massimo consentito
