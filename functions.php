@@ -116,4 +116,11 @@
             die("error in update rate query");
         }
     }
+
+    function IfLogged(){
+        session_start();
+        if (isset($_SESSION['username'])) {
+            return true;
+        }
+    }
 ?>

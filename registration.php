@@ -13,7 +13,11 @@
         <button class="submit-btn" onclick="location.href='index.php'">Home</button>
         <div class="container">
             <?php
-            require 'functions.php';    
+            require 'functions.php';  
+            if(IfLogged()){
+                header("Location: http://localhost/index.php");
+                exit();
+            }  
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Rimuovo la visualizzazione diretta degli errori per motivi di sicurezza
                     error_reporting(0);

@@ -15,7 +15,12 @@
         
         <div class="container">
             <?php
-            require('functions.php'); 
+            require('functions.php');
+            if(IfLogged()){
+                header("Location: http://localhost/index.php");
+                exit();
+            }
+
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $email = $_POST["email"];
