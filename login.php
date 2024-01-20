@@ -24,54 +24,51 @@
                     // Connessione al database con prepared statement
                     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     try {
+                        error_reporting(0);
                         $conn = readWriteConnection();
                 
                         $query = "SELECT email, password FROM users WHERE email = ?";
                         $params = "s";
                         $elem = array($email);
                         $result = execStmt($conn, $query, $elem, $params);
+
                         if (!$result)
                             die("error in select query");
 
-                        if ($result->num_rows > 0) {
-                            $row = $result->fetch_assoc();
-                            $storedEmail = $row['email'];
-                            $storedPassword = $row['password'];
+                        $row = $result->fetch_assoc();
+                        $storedEmail = $row['email'];
+                        $storedPassword = $row['password'];
+
+                        if (($result->num_rows > 0) && (password_verify($password, $storedPassword))) {
+
+                            session_start();
+                            $_SESSION['logged_in'] = true;
+                            $_SESSION['username'] = $email;
+                            $_SESSION['email'] = $email;
+                        
+                            $temp = session_id();
+                            //update della tabella cart cambiando il session id con l'email dell'utente loggato
+                            $updateCartQuery = "UPDATE cart SET email = ? WHERE email = ?";
+
                             
-                            // Verifica password
-                            if (password_verify($password, $storedPassword)) {
+                            $updateCartParams = "ss";
+                            $updateCartElem = array($email, $temp);
+                            $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
+                            
+                            //da errore nel caso in cui mi loggo senza avere roba nel carrello, perché???
+                            
+                            /*
+                            if (!$updateCartResult)
+                                die("error in update query");
+                            */
 
-                                // Password corretta
-                                session_start();
-                                $_SESSION['logged_in'] = true;
-                                $_SESSION['username'] = $email;
-                                $_SESSION['email'] = $email;
-                           
-                                $temp = session_id();
-                                //update della tabella cart cambiando il session id con l'email dell'utente loggato
-                                $updateCartQuery = "UPDATE cart SET email = ? WHERE email = ?";
+                            //update della tabella wishlist cambiando il session id con l'email dell'utente loggato
 
-                                
-                                $updateCartParams = "ss";
-                                $updateCartElem = array($email, $temp);
-                                $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
-                                
+                            header("Location: http://localhost/index.php");
+                            exit();
+                        } else
+                            displayError("Wrong Email or Password");
 
-                                //da errore nel caso in cui mi loggo senza avere roba nel carrello, perché???
-                                
-                                /*
-                                if (!$updateCartResult)
-                                    die("error in update query");
-                                */
-
-                                //update della tabella wishlist cambiando il session id con l'email dell'utente loggato
-
-                                header("Location: http://localhost/index.php");
-                                exit();
-                            } else 
-                                displayError("Wrong password");
-                        } else 
-                            displayError("Email not found");
                     } catch (Exception $e) {
                         // Registra gli errori nel file di log personalizzato
                         error_log("Error in query: " . $e->getMessage() . "\n", 3, "error_log");
