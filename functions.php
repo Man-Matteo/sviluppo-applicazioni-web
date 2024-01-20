@@ -114,8 +114,7 @@
     }
     function IfLogged(){
         session_start();
-        if (isset($_SESSION['username']))
-            return true;
+        return isset($_SESSION['username']);
     }
 
     function clean_input($data) {
