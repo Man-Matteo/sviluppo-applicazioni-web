@@ -15,12 +15,7 @@
             require('functions.php');
             $conn = readOnlyConnection();
 
-            function escapeString($value) {
-                global $conn;
-                return mysqli_real_escape_string($conn, $value);
-            }
-
-            $userEmail = isset($_SESSION['username']) ? escapeString($_SESSION['username']) : session_id();
+            $userEmail = isset($_SESSION['username']) ? $_SESSION['username'] : session_id();
             $cartQuery = "SELECT p.name, p.price, c.quantity, c.productId FROM cart c JOIN products p ON c.productId = p.productId WHERE c.email = ?";
             $elements = array($userEmail);
             $paramTypes = "s";
