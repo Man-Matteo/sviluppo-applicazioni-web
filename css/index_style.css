@@ -131,11 +131,14 @@ button {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   margin-top: 50px;
   z-index: 1;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #435d69;
+  margin-left: -30px;
 }
 
 .dropdown-content.show {
@@ -147,9 +150,13 @@ button {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  transition: color 0.3s ease;
 }
   
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: #9a0c0c;
+}
   
 .show {display:block;}
 
