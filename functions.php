@@ -120,6 +120,6 @@
     }
 
     function clean_input($data) {
-        return trim(stripslashes(htmlspecialchars($data)));
+        return htmlspecialchars($data);
     }
 ?>

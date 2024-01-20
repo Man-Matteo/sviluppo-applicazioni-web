@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/crowdfunding_style.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="logout.js"></script>
     <title>Crowdfunding</title>
 </head>
 
 <body>
     <?php
+    session_set_cookie_params(0);
     session_start();
     require('functions.php');
 

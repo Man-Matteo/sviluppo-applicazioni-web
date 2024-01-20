@@ -5,12 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="css/cart_style.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="logout.js"></script>
         <title>Cart</title>
     </head>
     <body>
         <?php
+            session_set_cookie_params(0);
             session_start();
             require('functions.php');
             $conn = readOnlyConnection();

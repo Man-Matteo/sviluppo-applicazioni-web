@@ -44,7 +44,7 @@
                         $storedPassword = $row['password'];
 
                         if (($result->num_rows === 1) && (password_verify($password, $storedPassword))) {
-
+                            session_set_cookie_params(0);
                             session_start();
                             $_SESSION['logged_in'] = true;
                             $_SESSION['username'] = $email;
