@@ -34,8 +34,6 @@
                     $orderedQuantity = $row['quantity'];
                     $productPrice = $row['price'];
             
-                    //forse posso farlo dentro l'if senza assegnare il valore di ritorno di execStmt in una variabile
-            
                     // Eseguo l'istruzione di inserimento nell'ordine per il prodotto corrente
                     $updateOrderQuery = "INSERT INTO orders (productId, email, price, quantity) VALUES (?, ?, ?, ?)";
                     $updateOrderElements = array($productId, $userEmail, $productPrice, $orderedQuantity);

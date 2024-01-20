@@ -19,7 +19,7 @@
             $searchParam = "s";
             $searchResult = execStmt($conn, $searchQuery, $searchElem, $searchParam);
             if(!$searchResult)
-                die("error in search query");
+                die("something went wrong");
 
             if ($searchResult->num_rows > 0) {
                     echo "<table>";

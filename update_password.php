@@ -18,7 +18,7 @@
     $passElem = array($userEmail);
     $passResult = execStmt($conn, $passQuery, $passElem, $passParam);
     if(!$passResult)
-        die("erorr in old pass query");
+        die("something went wrong");
     $row = $passResult->fetch_assoc();
     $current_password_hash = $row['password'];
 
@@ -42,7 +42,7 @@
                 $newPassElem = array($new_password_hash, $userEmail);
                 $newPassResult = execStmt($conn, $newPassQuery, $newPassElem, $newPassParams);
                 if(!$newPassResult)
-                    die("error in update pass query");
+                    die("something went wrong");
                
                 // Reindirizza alla pagina di successo o al pannello utente
                 header('Location: logout.php');

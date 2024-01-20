@@ -35,7 +35,7 @@
                         $elem = array($email);
                         $result = execStmt($conn, $query, $elem, $params);
                         if (!$result)
-                            die("error in select query");
+                            die("something went wrong");
 
                         $row = $result->fetch_assoc();
                         $storedEmail = $row['email'];

@@ -101,7 +101,7 @@
         $rateElem = array($product_id);
         $rateResult = execStmt($conn, $rateQuery, $rateElem, $rateParams);
         if(!$rateResult)
-            die("error in averagerate query");
+            die("something went wrong");
         $row = $rateResult->fetch_assoc();
         $avg_rating = $row['avg_rating'];
 
@@ -111,7 +111,7 @@
         $newRateResult = execStmt($conn, $newRateQuery, $newRateElem, $newRateParams);
         if(!$newRateResult){
             echo $newRateResult;
-            die("error in update rate query");
+            die("something went wrong");
         }
     }
     function IfLogged(){

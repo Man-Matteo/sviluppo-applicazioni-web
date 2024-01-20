@@ -33,7 +33,7 @@
                     $profileParams = "s";
                     $profileResult = execStmt($conn, $profileQuery, $profileElem, $profileParams);
                     if(!$profileResult)
-                        die("error in profile query");
+                        die("something went wrong");
 
                     if ($profileResult->num_rows == 1) {
                         echo "<table class='profile-table'>";

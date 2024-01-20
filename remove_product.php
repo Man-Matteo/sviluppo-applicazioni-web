@@ -19,7 +19,7 @@
     $selectElem = array($userEmail, $productId);
     $selectResult = execStmt($conn, $selectQuery, $selectElem, $selectParams);
     if (!$selectResult)
-        die('Error in select query.');
+        die('sommething went wrong');
 
     $row = $selectResult->fetch_assoc();
     if ($row["quantity"] > $quantityToRemove) {
@@ -28,14 +28,14 @@
         $updateElem = array($quantityToRemove, $userEmail, $productId);
         $updateResult = execStmt($conn, $updateQuery, $updateElem, $updateParams);
         if (!$updateResult)
-            die('Error in update query.');
+            die('sommething went wrong');
     } else if ($row["quantity"] == $quantityToRemove) {
         $removeQuery = "DELETE FROM cart WHERE email = ? AND productId = ?";
         $removeParams = "si";
         $removeElem = array($userEmail, $productId);
         $removeResult = execStmt($conn, $removeQuery, $removeElem, $removeParams);
         if (!$removeResult)
-            die('Error in remove query.');
+            die('sommething went wrong');
     } else
         die('You are trying to remove more products than you have in your cart.');
 

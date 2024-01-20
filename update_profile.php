@@ -46,7 +46,7 @@
                     $updateParams = "sssssss";
                     $updateElem = array($newFirstname, $newLastname, $newEmail ,$newCity, $newAboutme, $newSocial, $userEmail);
                     if(!execStmt($conn, $updateQuery, $updateElem, $updateParams))
-                        die("Something went wrong with the update query");
+                        die("Something went wrong");
 
                     header("Location: show_profile.php");
                     exit();

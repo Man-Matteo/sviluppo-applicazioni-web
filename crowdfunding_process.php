@@ -11,7 +11,7 @@
     $firstname = clean_input($_POST['firstname']);
     $lastname = clean_input($_POST['lastname']);
     $credit_card_number = clean_input($_POST['credit_card_number']);
-    $donation_amount = $_POST['donation_amount'];
+    $donation_amount = clean_input($_POST['donation_amount']);
 
   
     if (!is_numeric($donation_amount) || $donation_amount <= 0) {

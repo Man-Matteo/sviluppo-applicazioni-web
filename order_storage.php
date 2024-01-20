@@ -32,7 +32,7 @@
             $orderParams = "s";
             $orderResult = execStmt($conn, $orderQuery, $orderElem, $orderParams);
             if(!$orderResult)
-                die("error in order query");
+                die("something went wrong");
             
             if($orderResult -> num_rows == 0){
                 echo "<p> You haven't placed any orders yet </p>";
