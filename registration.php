@@ -19,8 +19,6 @@
                     exit();
                 }    
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    // Rimuovo la visualizzazione diretta degli errori per motivi di sicurezza
-                    error_reporting(0);
 
                     $firstname = clean_input($_POST["firstname"]);
                     $lastname = clean_input($_POST["lastname"]);
