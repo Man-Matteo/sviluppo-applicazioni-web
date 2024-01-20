@@ -36,6 +36,9 @@
                     $newLastname = !empty($_POST['lastname']) ? $_POST['lastname'] : null;
                     $newEmail = !empty($_POST['email']) ? $_POST['email'] : null;
 
+                    if ($userEmail != $newEmail) 
+                        $_SESSION['username'] = $newEmail;
+
                     $newCity = !empty($_POST['city']) ? $_POST['city'] : null;
                     $newAboutme = !empty($_POST['aboutme']) ? $_POST['aboutme'] : null;
                     $newSocial = !empty($_POST['social']) ? $_POST['social'] : null;
