@@ -23,44 +23,26 @@
                         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
                     }
 
-                    // Salva i dati immessi dal form in un array
-                    $form_fields = [
-                        $_POST["firstname"],
-                        $_POST["lastname"],
-                        filter_var($_POST['email'], FILTER_VALIDATE_EMAIL),
-                        $_POST["pass"],
-                        $_POST["confirm"]
-                    ];
+                    $firstname = clean_input($_POST["firstname"]);
+                    $lastname = clean_input($_POST["lastname"]);
+                    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+                    $password = clean_input($_POST["pass"]);
+                    $confirm = clean_input($_POST["confirm"]);
 
-                    // Salva le regex in un altro array
-                    $regex_patterns = [
-                        "/\w{2,16}/",
-                        "/\w{2,16}/",
-                        "/\w+@\w+\.\w+/",
-                        "/^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$/",
-                    ];
-
-                    // Controllo se i dati immessi rispettano le REGEX
-                    for ($i = 0; $i < count($regex_patterns); $i++)
-                        if (!preg_match($regex_patterns[$i], $form_fields[$i]))
-                            die('<div class="error">Error: field ' . ($i + 1) . ' is not valid.</div>');
-     
                     // Controllo se le password coincidono
-                    if ($form_fields[3] !== $form_fields[4])
+                    if ($password !== $confirm)
                         die('<div class="error">Error: passwords does not match.</div>');
                     
 
                     // Hash della password
-                    $hashed_pass = password_hash($_POST["pass"], PASSWORD_DEFAULT); 
+                    $hashed_pass = password_hash($password, PASSWORD_DEFAULT); 
 
-                    // Connessione al database
-                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-                    
+                    // Connessione al database                    
                     $conn = readWriteConnection();
 
                     //controllo che l'email non sia già presente nel database
                     $checkQuery = "SELECT email FROM users WHERE email = ?";
-                    $checkElem = array($form_fields[2]);
+                    $checkElem = array($email);
                     $checkParams = "s";
                     $checkResult = execStmt($conn, $checkQuery, $checkElem, $checkParams);
                     if (!$checkResult)
@@ -74,7 +56,7 @@
                     // Inserimento dei dati nel database
                     $insertQuery = "INSERT INTO users(firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
                     $insertParams = "ssss";
-                    $insertElem = array($form_fields[0], $form_fields[1], $form_fields[2], $hashed_pass);
+                    $insertElem = array($firstname, $lastname, $email, $hashed_pass);
                     $insertResult = execStmt($conn, $insertQuery, $insertElem, $insertParams);
                     if (!$insertResult)
                         die('<div class="error">Error in insert query.</div>');

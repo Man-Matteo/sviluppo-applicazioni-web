@@ -18,8 +18,8 @@
             require('functions.php'); 
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $email = $_POST["email"];
-                    $password = $_POST["pass"];
+                    $email = clean_input($_POST["email"]);
+                    $password = clean_input($_POST["pass"]);
 
                     // Connessione al database con prepared statement
                     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
