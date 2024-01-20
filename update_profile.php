@@ -62,7 +62,7 @@
                 if ($profileResult->num_rows == 1) {
                     echo "<div class='profile-table'>";
                     while ($row = mysqli_fetch_assoc($profileResult)) {
-                            echo "<form method='post'>";
+                            echo "<form method='post' action='update_profile.php'>";
                                 echo "<label for='firstname'>First Name:</label><br>";
                                 echo "<input type='text' id='firstname' name='firstname' value='" . $row['firstname'] . "'><br>";
 
