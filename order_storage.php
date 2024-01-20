@@ -23,6 +23,7 @@
                 $userEmail = $_SESSION['username'];
             else 
                 header('Location: login.php');
+                exit();
 
             
             $conn = readOnlyConnection();
