@@ -10,7 +10,7 @@
     $firstname = clean_input($_POST['firstname']);
     $lastname = clean_input($_POST['lastname']);
     $credit_card_number = clean_input($_POST['credit_card_number']);
-    $donation_amount = clean_input($_POST['donation_amount']);
+    $donation_amount = $_POST['donation_amount'];
 
   
     if (!is_numeric($donation_amount) || $donation_amount <= 0) {
@@ -28,15 +28,10 @@
     $insertDonationResult = execStmt($conn, $insertDonationQuery, $insertDonationElements, $insertDonationParams);
     if (!$insertDonationResult)
         die("Error in donation query");
+
+    $conn->close();
    
     header("Location: crowdfunding.php");
     exit();
 
-    // Funzione per pulire e validare l'input
-    function clean_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
 ?>

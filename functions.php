@@ -117,10 +117,18 @@
         }
     }
 
+<<<<<<< HEAD
     function IfLogged(){
         session_start();
         if (isset($_SESSION['username'])) {
             return true;
         }
+=======
+    function clean_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+>>>>>>> 1c3d79a6e4306840c6abe09eefd4f5d5030169f9
     }
 ?>

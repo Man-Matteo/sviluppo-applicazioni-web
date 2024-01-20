@@ -52,7 +52,6 @@
             $error_message = "old password is not correct.";
     }
 
-    // Chiudi la connessione al database
     $conn->close();
 ?>
 
