@@ -22,11 +22,6 @@
                     // Rimuovo la visualizzazione diretta degli errori per motivi di sicurezza
                     error_reporting(0);
 
-                    // Funzione per escapare i dati prima di visualizzarli nella pagina
-                    function escape($value) {
-                        return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
-                    }
-
                     $firstname = clean_input($_POST["firstname"]);
                     $lastname = clean_input($_POST["lastname"]);
                     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -71,7 +66,7 @@
                 }
             ?>
 
-            <form id="registration-form" method="post">
+            <form id="registration-form" method="post" onsubmit="return validateConfirmPassword()">
                 <label for="firstname">Firstname</label>
                 <input type="text" name="firstname" pattern="\w{2,16}" title="The name must contain at least 2 alphanumeric characters." required>
 
@@ -82,13 +77,28 @@
                 <input type="email" name="email" id="email" pattern="\w+@\w+\.\w+" title="Enter a valid email address." required>
 
                 <label for="pass">Password</label>
-                <input type="password" name="pass" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required>
+                <input type="password" name="pass" id="pass" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required>
 
                 <label for="confirm">Confirm password</label>
-                <input type="password" name="confirm" required>
+                <input type="password" name="confirm" id="confirm" required>
 
                 <input type="submit" name="submit" class="submit-btn" value="Register">
             </form>
+
+            <p id="message"></p>
         </div>
+
+        <script>
+            function validateConfirmPassword() {
+                var password = document.getElementById("pass").value;
+                var confirm = document.getElementById("confirm").value;
+                if (password !== confirm) {
+                    if(message)
+                        message.innerHTML = "Passwords does not match.";
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </body>
 </html>
