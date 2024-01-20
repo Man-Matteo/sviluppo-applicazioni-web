@@ -13,7 +13,7 @@
         <button class="submit-btn" onclick="location.href='index.php'">Home</button>
         <div class="container">
             <?php
-                require 'functions.php';    
+            require 'functions.php';    
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Rimuovo la visualizzazione diretta degli errori per motivi di sicurezza
                     error_reporting(0);
@@ -58,7 +58,7 @@
                     
                     $conn = readWriteConnection();
 
-                    //controllo che l'email non sia già presente nel database (PREPARE STATEMENT)
+                    //controllo che l'email non sia già presente nel database
                     $checkQuery = "SELECT email FROM users WHERE email = ?";
                     $checkElem = array($form_fields[2]);
                     $checkParams = "s";
@@ -71,7 +71,7 @@
                         die('<div class="error">Error: email not available.</div>');
                     
 
-                    // Inserimento dei dati nel database (PREPARE STATEMENT)
+                    // Inserimento dei dati nel database
                     $insertQuery = "INSERT INTO users(firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
                     $insertParams = "ssss";
                     $insertElem = array($form_fields[0], $form_fields[1], $form_fields[2], $hashed_pass);
@@ -81,7 +81,8 @@
 
                     echo '<div class="success">Registration was successful!</div>';
                     echo '<br><br><a href="index.php"><button>Home</button></a>';
-                    exit;    
+                    $conn->close();
+                    exit();    
                 }
             ?>
 

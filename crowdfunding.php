@@ -23,11 +23,15 @@
         $conn = readOnlyConnection();
 
         $totalAmountResult = $conn->query("SELECT SUM(donation_amount) AS total_amount FROM crowdfunding");
+        if (!$totalAmountResult)
+            die("Error in total amount query");
         $totalAmountRow = $totalAmountResult->fetch_assoc();
         $total = $totalAmountRow['total_amount'];
 
         $target = 10000;
         $achievedPercentage = ($total / $target) * 100;
+
+        $conn->close();
     }
     ?>
     <div id="progress-bar">

@@ -15,7 +15,12 @@
         
         <div class="container">
             <?php
-            require('functions.php'); 
+            require('functions.php');
+            if(IfLogged()){
+                header("Location: http://localhost/index.php");
+                exit();
+            }
+
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $email = $_POST["email"];
@@ -53,7 +58,7 @@
                             $updateCartParams = "ss";
                             $updateCartElem = array($email, $temp);
                             $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
-                            //controllare valori di ritorno di execStmt 
+                            //controllare valori di ritorno di execStmt forse si rompe tutto
 
                             //update della tabella wishlist cambiando il session id con l'email dell'utente loggato
 
