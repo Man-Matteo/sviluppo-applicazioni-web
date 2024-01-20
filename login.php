@@ -31,7 +31,6 @@
                         $params = "s";
                         $elem = array($email);
                         $result = execStmt($conn, $query, $elem, $params);
-
                         if (!$result)
                             die("error in select query");
 
@@ -54,13 +53,7 @@
                             $updateCartParams = "ss";
                             $updateCartElem = array($email, $temp);
                             $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
-                            
-                            //da errore nel caso in cui mi loggo senza avere roba nel carrello, perché???
-                            
-                            /*
-                            if (!$updateCartResult)
-                                die("error in update query");
-                            */
+                            //controllare valori di ritorno di execStmt
 
                             //update della tabella wishlist cambiando il session id con l'email dell'utente loggato
 

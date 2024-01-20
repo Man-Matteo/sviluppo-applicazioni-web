@@ -17,7 +17,8 @@
 
             // Query per ottenere i prodotti dalla tabella "prodotti"
             $result = $conn->query("SELECT productId, name, price, description, image, rating FROM products");
-          
+            if(!$result)
+                die("Select query error");
         ?>
 
         <!-- Sidebar (nascosta di default) -->

@@ -25,7 +25,9 @@
             $elements = array($userEmail);
             $paramTypes = "s";
             $cartResult = execStmt($conn, $cartQuery, $elements, $paramTypes);
-            //controllo valore di ritorno
+            if(!$cartResult)
+                die("error in cart query");
+            
 
             if ($cartResult && $cartResult->num_rows > 0) {
                 echo "<table>";

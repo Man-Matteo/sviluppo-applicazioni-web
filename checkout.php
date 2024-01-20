@@ -27,7 +27,8 @@
                 $availabilityCheckElements = array($userEmail);
                 $availabilityCheckParam = "s";
                 $availabilityCheckResult = execStmt($conn, $availabilityCheckQuery, $availabilityCheckElements, $availabilityCheckParam);
-                //controllo valore di ritorno
+                if(!$availabilityCheckResult)
+                    die("error in availability check query");
 
                 $availability = true;
                 
@@ -42,31 +43,37 @@
                     }
                     $productPrice = $row['price'];
             
-                    // Esegui l'eliminazione dal carrello del prodotto corrente
+                    // Eseguo l'eliminazione dal carrello del prodotto corrente
                     $deleteCartQuery = "DELETE FROM cart WHERE email = ? AND productId = ?";
                     $deleteCartElements = array($userEmail, $productId);
                     $deleteCartParams = "si";
                     $deleteCartResult = execStmt($conn, $deleteCartQuery, $deleteCartElements, $deleteCartParams);
-                    //controllo valore di ritorno
+                    if(!$deleteCartResult)
+                        die("error in delete cart query");
+                    //forse posso farlo dentro l'if senza assegnare il valore di ritorno di execStmt in una variabile
             
-                    // Esegui l'istruzione di inserimento nell'ordine per il prodotto corrente
+                    // Eseguo l'istruzione di inserimento nell'ordine per il prodotto corrente
                     $updateOrderQuery = "INSERT INTO orders (productId, email, price, quantity) VALUES (?, ?, ?, ?)";
                     $updateOrderElements = array($productId, $userEmail, $productPrice, $orderedQuantity);
                     $updateOrderParams = "isdi";
                     $updateOrderResult = execStmt($conn, $updateOrderQuery, $updateOrderElements, $updateOrderParams);
-                    //controllo valore di ritorno
+                    if(!$updateOrderResult)
+                        die("error in update order query");
                     
-                    // Esegui l'aggiornamento del magazzino per il prodotto corrente
+                    // Eseguo l'aggiornamento del magazzino per il prodotto corrente
                     $updateStorageQuery = "UPDATE products SET storage = storage - ? WHERE productId = ?";
                     $updateStorageElements = array($orderedQuantity, $productId);
                     $updateStorageParams = "ii";
                     $updateStorageResult = execStmt($conn, $updateStorageQuery, $updateStorageElements, $updateStorageParams);
-                    //controllo valore di ritorno
+                    if(!$updateStorageResult)
+                        die("error in update storage query");
                 }
             
                 // Commit della transazione
                 $conn->commit();
-            
+                
+
+                //PARLIAMONE
                 if (!$availability) {
                     echo "<p>Error: Not enough products to complete the order.</p>";
                     echo '<button type="submit" onclick="location.href=\'cart.php\'">Cart</button>';

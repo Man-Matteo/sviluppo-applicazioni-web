@@ -27,7 +27,6 @@
                 $ratingElem = array($rating, $order_id);
                 $ratingParams = "ii";
                 $ratingResult = execStmt($conn, $ratingQuery, $ratingElem, $ratingParams);
-
                 if (!$ratingResult) {
                     die("Error in rating query 1");
                 }else {
@@ -38,11 +37,10 @@
                 $updateRateElem = array($userEmail,$order_id);
                 $updateRateParams = "si";
                 $updateRateResult = execStmt($conn, $updateRateQuery, $updateRateElem, $updateRateParams);
-
-                $conn -> commit();
-            
                 if (!$updateRateResult) 
                     die("Error in rating query 2");
+
+                $conn -> commit();
             
                 while($row = $updateRateResult -> fetch_assoc()){
                     updateRating($row['productId']);
@@ -51,7 +49,6 @@
                 $conn -> rollback();
                 echo "Error in rating query 3";
             }
-
             
             $conn->close();
         ?>

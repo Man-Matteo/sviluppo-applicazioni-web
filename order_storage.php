@@ -32,6 +32,8 @@
             $orderElem = array($userEmail);
             $orderParams = "s";
             $orderResult = execStmt($conn, $orderQuery, $orderElem, $orderParams);
+            if(!$orderResult)
+                die("error in order query");
             
             if($orderResult -> num_rows == 0){
                 echo "<p> You haven't placed any orders yet </p>";
