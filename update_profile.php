@@ -45,8 +45,8 @@
                     $updateParams = "sssssss";
                     $updateElem = array($newFirstname, $newLastname, $newEmail ,$newCity, $newAboutme, $newSocial, $userEmail);
                     $updateResult = execStmt($conn, $updateQuery, $updateElem, $updateParams);
-                    if(!$updateResult)
-                        die("error in update profile query");
+                    if(!$updateResult AND $updateResult != 0)
+                        die("error in update profile data query");
 
                     header("Location: show_profile.php");
                 }
@@ -70,6 +70,14 @@
 
                                 echo "<label for='email'>Email:</label><br>";
                                 echo "<input type='text' id='email' name='email' value='" . $row['email'] . "'><br>";
+                                if (isset($_SESSION['errorMessage'])) {
+                                    echo "<p style='font-size:15px'>";
+                                    echo $_SESSION['errorMessage'];
+                                    echo "</p>";
+                                    echo "<br>";
+                                    unset($_SESSION['errorMessage']); // Unset the error message
+                                }
+
 
                                 echo "<label for='city'>City:</label><br>";
                                 echo "<input type='text' id='city' name='city' value='" . $row['city'] . "'><br>";
@@ -89,7 +97,9 @@
                 } else 
                     echo "Profile data not found";   
             } catch (Exception $e) {
-                echo "An error occurred while retrieving profile data.";
+                $_SESSION['errorMessage'] = "This email is already used!!!!"; // Store the error message in a session variable
+                header("Location: update_profile.php");
+                exit();
             } finally {
                 $conn->close();
             }
