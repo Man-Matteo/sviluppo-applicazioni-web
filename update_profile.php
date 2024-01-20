@@ -91,8 +91,8 @@
 
                                 echo "<button type='submit' value='Save'>Save</button>";
                                 echo "<br>";
-                                echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
                             echo "</form>";
+                            echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
                     }
                     echo "</div>";
                 } else 
