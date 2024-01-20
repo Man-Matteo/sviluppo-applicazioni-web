@@ -116,7 +116,11 @@
             die("error in update rate query");
         }
     }
-
+    function IfLogged(){
+        session_start();
+        if (isset($_SESSION['username']))
+            return true;
+    }
     function clean_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
