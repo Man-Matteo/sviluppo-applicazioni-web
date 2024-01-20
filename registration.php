@@ -37,7 +37,6 @@
                     if ($password !== $confirm)
                         die('<div class="error">Error: passwords does not match.</div>');
                     
-
                     // Hash della password
                     $hashed_pass = password_hash($password, PASSWORD_DEFAULT); 
 
