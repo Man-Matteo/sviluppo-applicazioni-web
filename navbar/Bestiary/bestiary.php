@@ -9,16 +9,19 @@
         <link rel="stylesheet" href="../../css/bestiary_style.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="../../logout.js"></script>
+        <script src="../../functions.js"></script>
     </head>
     <body>
+        
         <?php
+
             require '../../functions.php';
             $conn = readOnlyConnection();
 
             // Query per ottenere i prodotti dalla tabella "prodotti"
             $result = $conn->query("SELECT productId, name, price, description, image, storage, rating FROM products");
             if(!$result)
-                die("Select query error");
+                die("Something went wrong while retrieving products.");
         ?>
 
         <!-- Sidebar (nascosta di default) -->
@@ -45,6 +48,8 @@
             <div class="w3-row-padding w3-padding-16 w3-center" id="monsters">
                 <?php
                     // Stampa i prodotti
+                    
+                
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="w3-quarter" style="margin: 5px;">';
                         echo "<img src='../../{$row["image"]}' alt='{$row["name"]}' style='width:100%; border: 3px solid #000; border-radius: 10px; box-shadow: 10px 5px 8px black;'>";
@@ -53,8 +58,8 @@
                         echo "<p style='color:black; font-size: 30px; background-color: #FFA500; border-radius: 5px;'>Available quantity: {$row['storage']}</p>";
                         echo "<p style='color:black; font-size: 20px; background-color: #d4af37; border-radius: 5px;'>{$row['description']}</p>";
                         echo "<p style='color:black; font-size: 30px; background-color: #d4af37; border-radius: 5px;'>Rating: {$row['rating']}</p>";
-                        echo '<input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="100" value="1" style="font-size: 20px;">';
-                        echo "<button onclick='addToCart({$row['productId']})'>Add to cart</button>";
+                        echo '<input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="' . $row['storage'] . '" value="1" style="font-size: 20px;">';                        
+                        echo "<button onclick='addToCart({$row['productId']}, {$row['storage']})'>Add to cart</button>";
                         echo '</div>';
                     }
                 ?>
@@ -69,11 +74,6 @@
             
             function w3_close() {
                 document.getElementById("mySidebar").style.display = "none";
-            }
-
-            function addToCart(productId) {
-                var quantity = document.getElementById("quantity_" + productId).value;
-                window.location.href = "../../add_product.php?productId=" + productId + "&quantity=" + quantity;
             }
         </script>
     </body>

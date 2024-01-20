@@ -1,29 +1,31 @@
 <?php
     function updateOrAddCart($conn, $userEmail, $productId, $quantity) {
-
+        //recupero il carrello dell'utente
         $selectQuery = "SELECT * FROM cart WHERE email = ? AND productId = ?";
         $selectParams = "si";
         $selectElem = array($userEmail, $productId);
         $selectResult = execStmt($conn, $selectQuery, $selectElem, $selectParams);
         if(!$selectResult)
-            die("error in select query");
-    
+            die("something went wrong");
+        //controllo se ci sono abbastanza prodotti in magazzino
+        while($row = $selectResult->fetch_assoc())
+            if($row["productId"] == $productId)
+                if($row["quantity"] + $quantity > $row["storage"])
+                    die("not enough products in storage");
+        //aggiorno il carrello nel caso in cui il prodotto sia già presente oppure lo aggiungo
         if ($selectResult->num_rows > 0) {
             $updateQuery = "UPDATE cart SET quantity = quantity + ? WHERE email = ? AND productId = ?";
             $updateParams = "isi";
             $updateElem = array($quantity, $userEmail, $productId);
-            $updateResult = execStmt($conn, $updateQuery, $updateElem, $updateParams);
-            if(!$updateResult)
-                die("error in update query");
+            if(!execStmt($conn, $updateQuery, $updateElem, $updateParams))
+                die("something went wrong");
         } 
         else {
             $insertQuery = "INSERT INTO cart (email, productId, quantity) VALUES (?, ?, ?)";
             $insertParams = "sii";
             $insertElem = array($userEmail, $productId, $quantity);
-            $insertResult = execStmt($conn, $insertQuery, $insertElem, $insertParams);
-            if (!$insertResult)
-                die("error in insert query");
-
+            if (!execStmt($conn, $insertQuery, $insertElem, $insertParams))
+                die("something went wrong");
         }
     }
 

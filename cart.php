@@ -21,12 +21,12 @@
             $paramTypes = "s";
             $cartResult = execStmt($conn, $cartQuery, $elements, $paramTypes);
             if(!$cartResult)
-                die("error in cart query");
+                die("Something went wrong while retrieving cart.");
             
 
-            if ($cartResult && $cartResult->num_rows > 0) {
+            if ($cartResult->num_rows > 0) {
                 echo "<table>";
-                echo "<tr><th>Product</th><th>Price</th><th>Quantity</th><th>Action</th></tr>";
+                echo "<tr><th>Product</th><th>Price</th><th>Quantity</th><th>Change quantity</th></tr>";
 
                 $total = 0;
 
@@ -35,8 +35,11 @@
                     echo "<td>{$row['name']}</td>";
                     echo "<td>€{$row['price']}</td>";
                     echo "<td>{$row['quantity']}</td>";
-                    echo "<td><button onclick='removeFromCart({$row['productId']})'>Remove from cart</button></td>";
+                    echo "<td><input type='number' id='quantityToRemove_" . $row["productId"] . "' name='quantityToRemove' min='1' max='" . $row['quantity'] . "' value='1' </td>";
+                    echo "<button onclick='removeFromCart({$row['productId']}, {$row['quantity']})'>Remove from cart</button>";
                     echo "</tr>";
+
+
 
                     $productTotal = $row['price'] * $row['quantity'];
                     $total += $productTotal;
@@ -57,8 +60,14 @@
         ?>
     
         <script>
-            function removeFromCart(productId) {
-                window.location.href = "remove_product.php?productId=" + productId;
+            function removeFromCart(productId, cartQuantity) {
+                var quantityToRemove = document.getElementById("quantityToRemove_" + productId).value;
+
+                if(cartQuantity < quantityToRemove || quantityToRemove < 1) {
+                    alert("Invalid quantity.");
+                    return false;
+                }
+                window.location.href = "remove_product.php?productId=" + productId + "&quantityToRemove=" + quantityToRemove;
             }
         </script>
 

@@ -29,11 +29,11 @@
                     echo '
                     <div class="dropdown">
                         <button id="myBtn" class="dropbtn">My Account ↓</button>
-                        <div id="myDropdown" class="dropdown-content">
-                            <a href="logout.php">Logout</a>
+                        <div id="myDropdown" class="dropdown-content">     
                             <a href="show_profile.php">Show profile</a>
                             <a href="cart.php">Cart</a>
                             <a href="crowdfunding.php">Support us</a>
+                            <a href="logout.php">Logout</a>
                         </div>
                     </div>';
                 } else {

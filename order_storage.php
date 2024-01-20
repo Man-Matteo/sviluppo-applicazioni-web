@@ -21,10 +21,10 @@
             require('functions.php');
             if (isset($_SESSION['username'])) 
                 $userEmail = $_SESSION['username'];
-            else 
+            else {
                 header('Location: login.php');
                 exit();
-
+            }
             
             $conn = readOnlyConnection();
             
