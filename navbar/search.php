@@ -28,7 +28,7 @@
                     echo "<td>{$row['name']}</td>";
                     echo "<td>{$row['price']}</td>";
                     echo "<td>{$row['description']}</td>";
-                    echo "<td><img src='{$row['image']}' width='100' height='100' alt='search result image'></td>";
+                    echo "<td><img src='../{$row['image']}' width='100' height='100' alt='search result image'></td>";
                     echo '<td><input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="100" value="1"></td>';
                     echo "<td><button onclick='addToCart({$row['productId']})'>Add to cart</button></td>";
                     echo "</tr>";
