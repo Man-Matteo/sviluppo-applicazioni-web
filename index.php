@@ -42,7 +42,6 @@ session_start();
                     echo '<button type="submit" class="dropbtn login-button" onclick="location.href=\'login.php\'">Login</button>';
                 }
             ?>
-            
         </header>
 
         <div class="container">
