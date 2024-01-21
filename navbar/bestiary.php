@@ -23,23 +23,6 @@
                 die("Something went wrong while retrieving products.");
         ?>
 
-        <!-- Sidebar (nascosta di default) -->
-        <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none; z-index:2; width:20%; min-width:300px; border-radius:10px" id="mySidebar">
-            <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close menu</a>
-            <a href="../index.php" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-            <a href="cart.php" onclick="w3_close()" class="w3-bar-item w3-button">Cart</a>
-            <a href="contact_us.php" onclick="w3_close()" class="w3-bar-item w3-button">Contact us</a>
-        </nav>
-
-        <!-- Top menu -->
-        <div class="w3-top">
-            <div class="w3-white w3-xlarge" style="max-width:1200px; margin:auto; border-radius: 10px; margin-top: 5px; box-shadow: 10px 5px 8px black; opacity: .8;">
-                <div class="w3-button w3-padding-16 w3-left" style="border-radius: 10px;" onclick="w3_open()">☰</div>
-                <div class="w3-center w3-padding-16">Bestiary</div>
-            </div>
-        </div>
-
-
         <!-- !PAGE CONTENT! -->
         <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
 
@@ -65,18 +48,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <?php include '../html/footer.html'; ?>
-                    
-        <script>
-            // Script to open and close sidebar
-            function w3_open() {
-                document.getElementById("mySidebar").style.display = "block";
-            }
-
-            function w3_close() {
-                document.getElementById("mySidebar").style.display = "none";
-            }
-        </script>
     </body>
 </html>
