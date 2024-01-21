@@ -7,12 +7,13 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../../css/bestiary_style.css">
+        <link rel="stylesheet" href="../../css/navbar.css">
+        <link rel="stylesheet" href="../../css/footer.css">
         <script src="../../functions.js"></script>
     </head>
     <body>
-        
         <?php
-
+            include '../../navbar.html';
             require '../../functions.php';
             $conn = readOnlyConnection();
 
@@ -77,5 +78,6 @@
                 document.getElementById("mySidebar").style.display = "none";
             }
         </script>
+        <?php include '../../footer.html'; ?>
     </body>
 </html>

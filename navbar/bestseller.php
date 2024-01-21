@@ -6,9 +6,12 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../../css/bestseller.css">
         <script src="../../functions.js"></script>
+        <link rel="stylesheet" href="../../css/navbar.css">
+        <link rel="stylesheet" href="../../css/footer.css">
         <title>Bestsellers</title>
     </head>
-        <?php        
+        <?php
+            include '../../navbar.html';
             require '../../functions.php';
             $conn = readOnlyConnection();
 
@@ -47,6 +50,7 @@
             }
 
             $conn->close();
+            include '../../footer.html';
         ?>
     </body>
 </html>
