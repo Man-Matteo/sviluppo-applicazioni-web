@@ -100,7 +100,7 @@
                 var message = document.getElementById("message");
                 if (password !== confirm) {
                     if(message)
-                        message.innerHTML = "Passwords does not match.";
+                        message.innerHTML = "Passwords do not match.";
                     return false;
                 }
                 return true;
