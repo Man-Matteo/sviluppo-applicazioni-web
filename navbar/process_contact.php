@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <title>Process contact</title>
-        <link rel="stylesheet" href="../../css/about_us_style.css">
+        <link rel="stylesheet" href="../../../css/about_us_style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <link rel="stylesheet" href="../../css/navbar.css">
-        <link rel="stylesheet" href="../../css/footer.css">
+        <link rel="stylesheet" href="../../../css/navbar.css">
+        <link rel="stylesheet" href="../../../css/footer.css">
     <body>
         <?php include '../../navbar.html'; ?>
         <h1>Under Construction</h1>
