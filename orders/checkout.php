@@ -60,8 +60,7 @@
                 // Commit della transazione
                 $conn->commit();
 
-                echo "<p>Order completed successfully!</p>";
-                echo '<button type="submit" onclick="location.href=\'order_storage.php\'">Order history</button>';
+                header('Location: ../orders/order_storage.php');
             } catch (Exception $e) {
                 // Rollback in caso di errore
                 $conn->rollback();

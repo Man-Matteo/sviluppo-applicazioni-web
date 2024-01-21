@@ -12,7 +12,9 @@
     <body>
         <?php
             include '../partials/navbar.php';
-            if (!isset($_SESSION['username'])) {
+            require '../functions/functions.php';
+            //se l'utente non è loggato lo mando al login
+            if(!IfLogged()){
                 header("Location: ../user/login.php");
                 exit();
             }

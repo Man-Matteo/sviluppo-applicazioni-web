@@ -9,13 +9,17 @@
     </head>
     <body>
         <?php
-            session_set_cookie_params(0);
-            session_start();
             require "functions.php";
-            if (!isset($_SESSION['username'])) {
+            if(!IfLogged()){
                 header("Location: ../user/login.php");
                 exit();
             }
+            session_set_cookie_params(0);
+            session_start();
+            
+            //controllo se l'utente è loggato, aòtrimenti lo mando al login
+            
+           
             $conn = readWriteConnection();
 
             $order_id = $_POST['order_id'];
@@ -53,7 +57,7 @@
             }
             
             $conn->close();
-            header("Location: ../navbar/order_storage.php");
+            header("Location: ../orders/order_storage.php");
         ?>
     </body>
 </html>
