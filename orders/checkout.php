@@ -10,14 +10,14 @@
         <?php
             session_set_cookie_params(0);
             session_start();
-            require('functions.php');
+            require('../functions/functions.php');
             $conn = readWriteConnection();
 
             // Verifica se l'utente è loggato
             if (isset($_SESSION['username'])) 
                 $userEmail = $_SESSION['username'];
             else {
-                header('Location: http://localhost/login.php');
+                header('Location: ../user/login.php');
                 exit();
             }
             try {

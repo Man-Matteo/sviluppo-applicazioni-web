@@ -11,7 +11,7 @@
         <?php
             session_set_cookie_params(0);
             session_start();
-            require('functions.php');
+            require('../functions/functions.php');
             $conn = readOnlyConnection();
 
             $userEmail = isset($_SESSION['username']) ? $_SESSION['username'] : session_id();
@@ -51,9 +51,9 @@
                 echo "<p>Cart is empty.</p>";
             
 
-            echo '<button type="submit" onclick="location.href=\'navbar/Bestiary/bestiary.php\'">Keep shopping</button>';
-            echo '<button type="submit" onclick="location.href=\'index.php\'">Home</button>';
-            echo '<button type="submit" onclick="location.href=\'checkout.php\'">Checkout</button>';
+            echo '<button type="submit" onclick="location.href=\'bestiary.php\'">Keep shopping</button>';
+            echo '<button type="submit" onclick="location.href=\'../index.php\'">Home</button>';
+            echo '<button type="submit" onclick="location.href=\'../functions/checkout.php\'">Checkout</button>';
 
             $conn->close() 
         ?>
@@ -66,7 +66,7 @@
                     alert("Invalid quantity.");
                     return false;
                 }
-                window.location.href = "remove_product.php?productId=" + productId + "&quantityToRemove=" + quantityToRemove;
+                window.location.href = "../functions/remove_product.php?productId=" + productId + "&quantityToRemove=" + quantityToRemove;
             }
         </script>
 

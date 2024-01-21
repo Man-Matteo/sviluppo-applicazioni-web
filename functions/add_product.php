@@ -17,6 +17,6 @@
 
     $conn->close();
 
-    header("Location: cart.php");
+    header("Location: ../navbar/cart.php");
     exit();
 ?>

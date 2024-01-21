@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <button type="button" onclick="location.href='index.php'">Home</button>
+            <button type="button" onclick="location.href='../index.php'">Home</button>
             <div class="header">
                 <h1>Order history</h1>
             </div>
@@ -17,11 +17,11 @@
         <?php
             session_set_cookie_params(0);
             session_start();
-            require('functions.php');
+            require('../functions/functions.php');
             if (isset($_SESSION['username'])) 
                 $userEmail = $_SESSION['username'];
             else {
-                header('Location: login.php');
+                header('Location: ../user/login.php');
                 exit();
             }
             

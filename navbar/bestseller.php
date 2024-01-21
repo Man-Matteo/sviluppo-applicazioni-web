@@ -11,8 +11,8 @@
         <title>Bestsellers</title>
     </head>
         <?php
-            include '../../navbar.html';
-            require '../../functions.php';
+            include '../html/navbar.html';
+            require '../functions/functions.php';
             $conn = readOnlyConnection();
 
             // Search the products in the database
@@ -46,7 +46,7 @@
             } else {
                 echo "No results found";
                 echo "<br>";
-                echo "<a href='../../index.php'>Torna alla home</a>";
+                echo "<a href='../index.php'>Torna alla home</a>";
             }
 
             $conn->close();

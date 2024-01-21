@@ -12,10 +12,10 @@
     <?php
     session_set_cookie_params(0);
     session_start();
-    require('functions.php');
+    require('../functions/functions.php');
 
     if (!isset($_SESSION['username'])) {
-        header("Location: login.php");
+        header("Location: ../user/login.php");
         exit();
 
     } else {

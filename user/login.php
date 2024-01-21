@@ -9,13 +9,13 @@
     </head>
     <body>
        
-        <button class="submit-btn" onclick="location.href='index.php'">Home</button>
+        <button class="submit-btn" onclick="location.href='../index.php'">Home</button>
         
         <div class="container">
             <?php
-            require('functions.php');
+            require('../functions/functions.php');
             if(IfLogged()){
-                header("Location: http://localhost/index.php");
+                header("Location: ../index.php");
                 exit();
             }
 
@@ -54,7 +54,7 @@
                             $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
                             //controllare valori di ritorno di execStmt forse si rompe tutto
 
-                            header("Location: http://localhost/index.php");
+                            header("Location: ../index.php");
                             exit();
                         } else
                             displayError("Wrong Email or Password");

@@ -8,12 +8,12 @@
         <title>Registration</title>
     </head>
     <body>
-        <button class="submit-btn" onclick="location.href='index.php'">Home</button>
+        <button class="submit-btn" onclick="location.href='../index.php'">Home</button>
         <div class="container">
             <?php
-                require 'functions.php';
+                require '../functions/functions.php';
                 if(IfLogged()){
-                    header("Location: http://localhost/index.php");
+                    header("Location: ../index.php");
                     exit();
                 }    
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +57,7 @@
                         $conn -> commit();
 
                         echo '<div class="success">Registration was successful!</div>';
-                        echo '<br><br><a href="index.php"><button>Home</button></a>';
+                        echo '<br><br><a href="../index.php"><button>Home</button></a>';
                         $conn->close();
                         exit(); 
                     }

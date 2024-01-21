@@ -13,8 +13,8 @@
     </head>
     <body>
         <?php
-            include '../../navbar.html';
-            require '../../functions.php';
+            include '../html/navbar.html';
+            require '../functions/functions.php';
             $conn = readOnlyConnection();
 
             // Query per ottenere i prodotti dalla tabella "prodotti"
@@ -26,9 +26,9 @@
         <!-- Sidebar (nascosta di default) -->
         <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none; z-index:2; width:20%; min-width:300px; border-radius:10px" id="mySidebar">
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close menu</a>
-            <a href="../../index.php" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-            <a href="../../cart.php" onclick="w3_close()" class="w3-bar-item w3-button">Cart</a>
-            <a href="../Contact_us/contact_us.php" onclick="w3_close()" class="w3-bar-item w3-button">Contact us</a>
+            <a href="../index.php" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+            <a href="cart.php" onclick="w3_close()" class="w3-bar-item w3-button">Cart</a>
+            <a href="contact_us.php" onclick="w3_close()" class="w3-bar-item w3-button">Contact us</a>
         </nav>
 
         <!-- Top menu -->
@@ -66,7 +66,7 @@
         </div>
 
         <!-- Footer -->
-        <?php include '../../footer.php'; ?>
+        <?php include '../html/footer.html'; ?>
                     
         <script>
             // Script to open and close sidebar
@@ -78,6 +78,5 @@
                 document.getElementById("mySidebar").style.display = "none";
             }
         </script>
-        <?php include '../../footer.html'; ?>
     </body>
 </html>

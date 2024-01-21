@@ -4,6 +4,6 @@ function addToCart(productId, storage) {
         alert("Invalid quantity");
         return false;
     }
-    window.location.href = "../../add_product.php?productId=" + productId + "&quantity=" + quantity;
+    window.location.href = "add_product.php?productId=" + productId + "&quantity=" + quantity;
 }
 

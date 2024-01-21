@@ -14,7 +14,7 @@
             $order_id = $_GET['orderId'];
         ?>
         <h1>Rate your product from 1 to 5 stars</h1><br>
-        <form action='rating.php' method='post'>
+        <form action='../functions/rating.php' method='post'>
             <input type='hidden' id='order_id' name='order_id' value='<?php echo $order_id; ?>'><br>
             <label for='evaluation'>Rating:</label>
             <div class="star-rating">

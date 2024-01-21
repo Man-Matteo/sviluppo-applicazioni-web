@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <button type="button" onclick="location.href='index.php'">Home</button>
+            <button type="button" onclick="location.href='../index.php'">Home</button>
             <div class="header">
                 <h1>Update Profile</h1>
             </div>
@@ -18,7 +18,7 @@
         <?php
             session_set_cookie_params(0);
             session_start();
-            require 'functions.php';
+            require '../functions/functions.php';
             if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
                 header("Location: login.php");
                 exit();
@@ -50,7 +50,7 @@
                         die("Something went wrong");
                     }
 
-                    header("Location: show_profile.php");
+                    header("Location: ../navbar/show_profile.php");
                     exit();
                 }
 
@@ -94,7 +94,7 @@
                                 echo "<button type='submit' value='Save'>Save</button>";
                                 echo "<br>";
                             echo "</form>";
-                            echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
+                            echo '<button type="submit" onclick="location.href=\'../navbar/show_profile.php\'">Go back to your profile</button>';
                     }
                     echo "</div>";
                 } else 

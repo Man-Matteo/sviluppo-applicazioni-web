@@ -10,7 +10,7 @@
         <?php
             $search_query = clean_input($_GET['search']);
 
-            require 'functions.php';
+            require '../functions/functions.php';
             $conn = readOnlyConnection();
 
             // Search the products in the database
@@ -45,7 +45,7 @@
         <script>
             function addToCart(productId) {
                 var quantity = document.getElementById("quantity_" + productId).value;
-                window.location.href = "add_product.php?productId=" + productId + "&quantity=" + quantity;
+                window.location.href = "../functions/add_product.php?productId=" + productId + "&quantity=" + quantity;
             }
         </script>
     </body>

@@ -1,7 +1,7 @@
 <?php
     session_set_cookie_params(0);
     session_start();
-    require('functions.php');
+    require('../functions/functions.php');
     if (!isset($_SESSION['username'])) {
         echo "<p>You need to be logged in to make a donation.</p>";
         exit();

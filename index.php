@@ -19,7 +19,7 @@ session_start();
                 <img alt="Title" src="Images/title_white.png">
             </div>
 
-            <form class="search" action="search.php" method="get">
+            <form class="search" action="navbar/search.php" method="get">
                 <input type="text" placeholder="Search..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -31,27 +31,27 @@ session_start();
                     <div class="dropdown">
                         <button id="myBtn" class="dropbtn">My Account ↓</button>
                         <div id="myDropdown" class="dropdown-content">     
-                            <a href="show_profile.php">Show profile</a>
-                            <a href="cart.php">Cart</a>
-                            <a href="crowdfunding.php">Support us</a>
-                            <a href="logout.php">Logout</a>
+                            <a href="navbar/show_profile.php">Show profile</a>
+                            <a href="navbar/cart.php">Cart</a>
+                            <a href="crowdfunding/crowdfunding.php">Support us</a>
+                            <a href="functions/logout.php">Logout</a>
                         </div>
                     </div>';
                 } else {
                     // Utente non loggato, mostra solo il pulsante "Login"
-                    echo '<button type="submit" class="dropbtn login-button" onclick="location.href=\'login.php\'">Login</button>';
+                    echo '<button type="submit" class="dropbtn login-button" onclick="location.href=\'user/login.php\'">Login</button>';
                 }
             ?>
         </header>
 
         <div class="container">
             <div class="buttonContainer">
-                <button class="menu" onclick="location.href='navbar/Bestiary/bestiary.php'"><img src="Images/bestiary_icon.png" alt="bestiary_icon" style="width:30px">Bestiary</button>
-                <button class="menu" onclick="location.href='navbar/Bestseller/bestseller.php'"><img src="Images/bestseller_icon.png" alt="bestseller_icon" style="width:30px">Bestseller</button>
-                <button class="menu" onclick="location.href='cart.php'"><img src="Images/icon-cart.png" alt="cart_icon" style="width:30px">Cart</button>
-                <button class="menu" onclick="location.href='navbar/Saved/saved.php'"><img src="Images/saved_icon.png" alt="saved_icon" style="width:30px">Saved</button>
-                <button class="menu" onclick="location.href='navbar/About_us/about_us.php'"><img src="Images/about_us_icon.png" alt="about_us_icon" style="width:30px">About us</button>
-                <button class="menu" onclick="location.href='navbar/Contact_us/contact_us.php'"><img src="Images/contact_us_icon.png" alt="contact_us_icon" style="width:30px">Contact us</button>
+                <button class="menu" onclick="location.href='navbar/bestiary.php'"><img src="Images/bestiary_icon.png" alt="bestiary_icon" style="width:30px">Bestiary</button>
+                <button class="menu" onclick="location.href='navbar/bestseller.php'"><img src="Images/bestseller_icon.png" alt="bestseller_icon" style="width:30px">Bestseller</button>
+                <button class="menu" onclick="location.href='navbar/cart.php'"><img src="Images/icon-cart.png" alt="cart_icon" style="width:30px">Cart</button>
+                <button class="menu" onclick="location.href='navbar/saved.php'"><img src="Images/saved_icon.png" alt="saved_icon" style="width:30px">Saved</button>
+                <button class="menu" onclick="location.href='navbar/about_us.php'"><img src="Images/about_us_icon.png" alt="about_us_icon" style="width:30px">About us</button>
+                <button class="menu" onclick="location.href='navbar/contact_us.php'"><img src="Images/contact_us_icon.png" alt="contact_us_icon" style="width:30px">Contact us</button>
             </div>
 
             <div class="slideshow-container">

@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <button type="button" onclick="location.href='index.php'">Home</button>
+            <button type="button" onclick="location.href='../index.php'">Home</button>
             <div class="header">
                 <h1>Account Profile</h1>
             </div>
@@ -17,10 +17,10 @@
             <?php
                 session_set_cookie_params(0);
                 session_start();
-                require 'functions.php';
+                require '../functions/functions.php';
                 
                 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-                    header("Location: login.php");
+                    header("Location: ../user/login.php");
                     exit();
                 }
 
@@ -53,10 +53,10 @@
                         echo "</table>";
                         echo "<div class='profile-buttons'>";
 
-                        echo "<button type='button' onclick='location.href=\"update_profile.php\"'>Modify profile</button>";
-                        echo "<button type='button' onclick='location.href=\"update_password.php\"'>Modify password</button>";
-                        echo "<button type='submit' onclick='location.href=\"order_storage.php\"'>Order history</button>";
-                        echo "<button type='submit' onclick='location.href=\"logout.php\"'>Logout</button>";
+                        echo "<button type='button' onclick='location.href=\"../user/update_profile.php\"'>Modify profile</button>";
+                        echo "<button type='button' onclick='location.href=\"../user/update_password.php\"'>Modify password</button>";
+                        echo "<button type='submit' onclick='location.href=\"../orders/order_storage.php\"'>Order history</button>";
+                        echo "<button type='submit' onclick='location.href=\"../functions/logout.php\"'>Logout</button>";
                         
                         echo "</div>";
 

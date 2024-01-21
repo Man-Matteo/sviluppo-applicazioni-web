@@ -52,6 +52,6 @@
             $conn->close();
         ?>
         <br>
-        <a href="order_storage.php"><button type='submit'>Go back to order history</button></a>
+        <a href="../orders/order_storage.php"><button type='submit'>Go back to order history</button></a>
     </body>
 </html>

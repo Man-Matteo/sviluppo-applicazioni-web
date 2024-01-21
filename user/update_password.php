@@ -1,7 +1,7 @@
 <?php
     session_set_cookie_params(0);
     session_start();
-    require 'functions.php';
+    require '../functions/functions.php';
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header("Location: login.php");
         exit();
@@ -39,7 +39,7 @@
                     die("something went wrong");
                
                 // Reindirizza alla pagina di successo o al pannello utente
-                header('Location: logout.php');
+                header('Location: ../functions/logout.php');
                 exit();
             } else 
                 $error_message = "new passwords does not match.";   
@@ -62,7 +62,7 @@
 </head>
 <body>
     <header>
-        <button type="button" onclick="location.href='index.php'">Home</button>
+        <button type="button" onclick="location.href='../index.php'">Home</button>
         <div class="header">
             <h1>Update Password</h1>
         </div>
