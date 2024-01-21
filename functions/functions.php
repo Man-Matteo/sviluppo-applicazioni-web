@@ -9,11 +9,16 @@
             die("something went wrong");
 
         //controllo se ci sono abbastanza prodotti in magazzino
-        while($row = $selectResult->fetch_assoc())
-            if($row["productId"] == $productId)
-                if($row["quantity"] + $quantity > $row["storage"])
-                    die("not enough products in storage");
-                
+        $storageQuery = "SELECT storage FROM products WHERE productId = ?";
+        $storageParams = "i";
+        $storageElem = array($productId);
+        $storageResult = execStmt($conn, $storageQuery, $storageElem, $storageParams);
+        if(!$storageResult)
+            die("something went wrong");
+        $row = $storageResult->fetch_assoc();
+        if($row["storage"] < $quantity)
+            die("not enough products in storage");
+     
         //aggiorno il carrello nel caso in cui il prodotto sia già presente oppure lo aggiungo
         if ($selectResult->num_rows > 0) {
             $updateQuery = "UPDATE cart SET quantity = quantity + ? WHERE email = ? AND productId = ?";
