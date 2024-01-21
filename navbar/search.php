@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../css/order_storage_style.css">
+        <script src="../functions/functions.js"></script>
         <title>Search results</title>
     </head>
         <?php
@@ -13,7 +14,7 @@
             $conn = readOnlyConnection();
 
             // Search the products in the database
-            $searchQuery = "SELECT p.productId, p.name, p.price, p.description, p.image FROM products p  WHERE p.name LIKE ?";
+            $searchQuery = "SELECT p.productId, p.name, p.price, p.description, p.image, p.storage FROM products p  WHERE p.name LIKE ?";
             $searchElem = array("%" . $search_query . "%");
             $searchParam = "s";
             $searchResult = execStmt($conn, $searchQuery, $searchElem, $searchParam);
@@ -30,7 +31,7 @@
                     echo "<td>{$row['description']}</td>";
                     echo "<td><img src='../{$row['image']}' width='100' height='100' alt='search result image'></td>";
                     echo '<td><input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="100" value="1"></td>';
-                    echo "<td><button onclick='addToCart({$row['productId']})'>Add to cart</button></td>";
+                    echo "<td><button onclick='addToCart({$row['productId']}, {$row['storage']})'>Add to cart</button></td>";
                     echo "</tr>";
                 
                 }
@@ -41,11 +42,11 @@
             $conn->close();
         ?>
 
-        <script>
+        <!-- <script>
             function addToCart(productId) {
                 var quantity = document.getElementById("quantity_" + productId).value;
                 window.location.href = "../functions/add_product.php?productId=" + productId + "&quantity=" + quantity;
             }
-        </script>
+        </script> -->
     </body>
 </html>

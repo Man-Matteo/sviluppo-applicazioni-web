@@ -29,9 +29,6 @@
             <!-- Prima Griglia -->
             <div class="w3-row-padding w3-padding-16 w3-center" id="monsters">
                 <?php
-                    // Stampa i prodotti
-                    
-                
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="w3-quarter" style="margin: 5px;">';
                         echo "<img src='../{$row["image"]}' alt='{$row["name"]}' style='width:100%; border: 3px solid #000; border-radius: 10px; box-shadow: 10px 5px 8px black;'>";
