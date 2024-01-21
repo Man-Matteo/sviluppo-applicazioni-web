@@ -6,7 +6,7 @@
         echo "<p>You need to be logged in to make a donation.</p>";
         exit();
     }
-
+    $conn = readWriteConnection();
     // Pulizia e validazione degli input
     $firstname = clean_input($_POST['firstname']);
     $lastname = clean_input($_POST['lastname']);
@@ -19,8 +19,18 @@
         exit();
     }
 
+    $totalAmountResult = $conn->query("SELECT SUM(donation_amount) AS total_amount FROM crowdfunding");
+        if (!$totalAmountResult)
+            die("Error in total amount query");
+    $totalAmountRow = $totalAmountResult->fetch_assoc();
+    $total = $totalAmountRow['total_amount'];
+    $target = 10000;
+    if($total + $donation_amount > $target){
+        echo "<p>Donation amount not valid.</p>";
+        exit();
+    }
     
-    $conn = readWriteConnection();
+ 
 
     $username = $_SESSION['username'];
     $insertDonationQuery = "INSERT INTO crowdfunding (email, firstname, lastname, donation_amount) VALUES (?, ?, ?, ?)";
