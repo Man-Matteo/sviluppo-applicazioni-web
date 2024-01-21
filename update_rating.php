@@ -16,7 +16,7 @@
         <h1>Rate your product from 1 to 5 stars</h1><br>
         <form action='rating.php' method='post'>
             <input type='hidden' id='order_id' name='order_id' value='<?php echo $order_id; ?>'><br>
-            <label for='evaluation'>Rating:</label><br>
+            <label for='evaluation'>Rating:</label>
             <div class="star-rating">
                 <div class="star-rating__wrap">
                 <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
@@ -30,8 +30,8 @@
                 <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
                 <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>
                 </div>
+                <br>
             </div>
-            <input type='number' id='evaluation' name='evaluation' min='1' max='5'><br>
             <button type='submit' value='submit'>Rate</button>
         </form>
         <br>

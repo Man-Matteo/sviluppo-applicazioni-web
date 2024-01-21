@@ -7,11 +7,13 @@
         $selectResult = execStmt($conn, $selectQuery, $selectElem, $selectParams);
         if(!$selectResult)
             die("something went wrong");
+
         //controllo se ci sono abbastanza prodotti in magazzino
         while($row = $selectResult->fetch_assoc())
             if($row["productId"] == $productId)
                 if($row["quantity"] + $quantity > $row["storage"])
                     die("not enough products in storage");
+                
         //aggiorno il carrello nel caso in cui il prodotto sia già presente oppure lo aggiungo
         if ($selectResult->num_rows > 0) {
             $updateQuery = "UPDATE cart SET quantity = quantity + ? WHERE email = ? AND productId = ?";
@@ -104,12 +106,13 @@
             die("something went wrong");
         $row = $rateResult->fetch_assoc();
         $avg_rating = $row['avg_rating'];
+        echo $avg_rating;
 
         $newRateQuery = "UPDATE products SET rating = ? WHERE productId = ?";
         $newRateParams = "ii";
         $newRateElem = array($avg_rating, $product_id);
         $newRateResult = execStmt($conn, $newRateQuery, $newRateElem, $newRateParams);
-        if(!$newRateResult){
+        if(!$newRateResult && $newRateResult != 0){
             echo $newRateResult;
             die("something went wrong");
         }

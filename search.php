@@ -8,7 +8,7 @@
         <title>Search results</title>
     </head>
         <?php
-            $search_query = $_GET['search'];
+            $search_query = clean_input($_GET['search']);
 
             require 'functions.php';
             $conn = readOnlyConnection();

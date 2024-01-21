@@ -24,8 +24,6 @@
                     $email = clean_input($_POST["email"]);
                     $password = clean_input($_POST["pass"]);
 
-                    // Connessione al database con prepared statement
-                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     try {
                         error_reporting(0);
                         $conn = readWriteConnection();
@@ -51,14 +49,10 @@
                             $temp = session_id();
                             //update della tabella cart cambiando il session id con l'email dell'utente loggato
                             $updateCartQuery = "UPDATE cart SET email = ? WHERE email = ?";
-
-                            
                             $updateCartParams = "ss";
                             $updateCartElem = array($email, $temp);
                             $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
                             //controllare valori di ritorno di execStmt forse si rompe tutto
-
-                            //update della tabella wishlist cambiando il session id con l'email dell'utente loggato
 
                             header("Location: http://localhost/index.php");
                             exit();

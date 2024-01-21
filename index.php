@@ -19,8 +19,8 @@ session_start();
                 <img alt="Title" src="Images/title_white.png">
             </div>
 
-            <form class="search" action="search.php">
-                <input type="text" placeholder="Search.." name="search">
+            <form class="search" action="search.php" method="get">
+                <input type="text" placeholder="Search..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
 

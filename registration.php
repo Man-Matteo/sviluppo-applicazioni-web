@@ -44,10 +44,8 @@
                         $checkParams = "s";
                         $checkResult = execStmt($conn, $checkQuery, $checkElem, $checkParams);
                         if (!$checkResult)
-                            die('<div class="error">Error in check query.</div>');
+                            die('<div class="error">something went wrong.</div>');
                         
-                        
-
                         // Inserimento dei dati nel database
                         $insertQuery = "INSERT INTO users(firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
                         $insertParams = "ssss";
@@ -82,7 +80,7 @@
                 <input type="email" name="email" id="email" title="Enter a valid email address." required>
 
                 <label for="pass">Password</label>
-                <input type="password" name="pass" id="pass" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required>
+                <input type="password" name="pass" id="pass" required>
 
                 <label for="confirm">Confirm password</label>
                 <input type="password" name="confirm" id="confirm" required>

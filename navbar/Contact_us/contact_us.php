@@ -6,8 +6,7 @@
         <title>Contact us</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../../css/contact_us_style.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="../../logout.js"></script>
+
     </head>
     <body>
         <h1>Contact us</h1>

@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../../css/bestseller.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="../../logout.js"></script>
         <script src="../../functions.js"></script>
         <title>Bestsellers</title>
     </head>
@@ -25,8 +23,8 @@
             if(!$result)
                 die("Something went wrong while retrieving products.");
 
-            if ($result->num_rows > 0) {
-                // Output the products
+            // If there are results, output them
+            if ($result->num_rows > 1) {
                     echo "<table>";
                     echo "<tr><th>Name</th><th>Price</th><th>Description</th><th>Image</th><th>Select quantity</th><th></th></tr>";
                 while($row = $result->fetch_assoc()) {
@@ -41,9 +39,11 @@
                     echo "</tr>";
                     echo "<p hidden id='storage_{$row['productId']}'>{$row['storage']}</p>";
                 }
-                echo "</table>";
+                echo "</table>";         
             } else {
                 echo "No results found";
+                echo "<br>";
+                echo "<a href='../../index.php'>Torna alla home</a>";
             }
 
             $conn->close();

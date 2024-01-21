@@ -7,8 +7,6 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="../../css/bestiary_style.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="../../logout.js"></script>
         <script src="../../functions.js"></script>
     </head>
     <body>
@@ -70,11 +68,11 @@
         <?php include '../../footer.php'; ?>
                     
         <script>
-            // Script per aprire e chiudere il menu laterale
+            // Script to open and close sidebar
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
             }
-            
+
             function w3_close() {
                 document.getElementById("mySidebar").style.display = "none";
             }

@@ -26,15 +26,13 @@
         $updateQuery = "UPDATE cart SET quantity = quantity - ? WHERE email = ? AND productId = ?";
         $updateParams = "isi";
         $updateElem = array($quantityToRemove, $userEmail, $productId);
-        $updateResult = execStmt($conn, $updateQuery, $updateElem, $updateParams);
-        if (!$updateResult)
+        if (!execStmt($conn, $updateQuery, $updateElem, $updateParams))
             die('sommething went wrong');
     } else if ($row["quantity"] == $quantityToRemove) {
         $removeQuery = "DELETE FROM cart WHERE email = ? AND productId = ?";
         $removeParams = "si";
         $removeElem = array($userEmail, $productId);
-        $removeResult = execStmt($conn, $removeQuery, $removeElem, $removeParams);
-        if (!$removeResult)
+        if (!execStmt($conn, $removeQuery, $removeElem, $removeParams))
             die('sommething went wrong');
     } else
         die('You are trying to remove more products than you have in your cart.');

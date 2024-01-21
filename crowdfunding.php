@@ -92,7 +92,7 @@
                 input.value = maxDonation;
             } else if (donationAmount + <?php echo $total; ?> > maxDonation) {
                 alert("Exceeding the maximum threshold.");
-                input.value = maxDonation - <?php echo $total; ?>; // Imposta l'importo massimo consentito
+                input.value = maxDonation - <?php echo $total; ?>;
             }
         }
     </script>

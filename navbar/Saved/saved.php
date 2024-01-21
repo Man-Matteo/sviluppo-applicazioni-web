@@ -3,8 +3,7 @@
     <head>
         <title>Saved</title>
         <link rel="stylesheet" href="../../css/about_us_style.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="../../logout.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
     </head>
     <body>
         <h1>Under Construction</h1>

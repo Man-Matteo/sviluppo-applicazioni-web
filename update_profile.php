@@ -31,28 +31,30 @@
                 $conn = readWriteConnection();
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $newFirstname = !empty($_POST['firstname']) ? $_POST['firstname'] : null;
-                    $newLastname = !empty($_POST['lastname']) ? $_POST['lastname'] : null;
-                    $newEmail = !empty($_POST['email']) ? $_POST['email'] : null;
+                    $newFirstname = !empty($_POST['firstname']) ? clean_input($_POST['firstname']) : null;
+                    $newLastname = !empty($_POST['lastname']) ? clean_input($_POST['lastname']) : null;
+                    $newEmail = !empty($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : null;
 
                     if ($userEmail != $newEmail) 
                         $_SESSION['username'] = $newEmail;
 
-                    $newCity = !empty($_POST['city']) ? $_POST['city'] : null;
-                    $newAboutme = !empty($_POST['aboutme']) ? $_POST['aboutme'] : null;
-                    $newSocial = !empty($_POST['social']) ? $_POST['social'] : null;
+                    $newCity = !empty($_POST['city']) ? clean_input($_POST['city']) : null;
+                    $newAboutme = !empty($_POST['aboutme']) ? clean_input($_POST['aboutme']) : null;
+                    $newSocial = !empty($_POST['social']) ? clean_input($_POST['social']) : null;
 
                     $updateQuery = "UPDATE users SET firstname = ?, lastname = ?, email = ?, city = ?, aboutme = ?, social = ? WHERE email = ?";
                     $updateParams = "sssssss";
                     $updateElem = array($newFirstname, $newLastname, $newEmail ,$newCity, $newAboutme, $newSocial, $userEmail);
-                    if(!execStmt($conn, $updateQuery, $updateElem, $updateParams))
+                    if(!execStmt($conn, $updateQuery, $updateElem, $updateParams)) {
+                        $_SESSION['username'] = $userEmail;
                         die("Something went wrong");
+                    }
 
                     header("Location: show_profile.php");
                     exit();
                 }
 
-                $profileQuery = "SELECT firstname, lastname, email, password, city, aboutme, social FROM users WHERE email = ?";
+                $profileQuery = "SELECT firstname, lastname, email, city, aboutme, social FROM users WHERE email = ?";
                 $profileParams = "s";
                 $profileElem = array($userEmail);
                 $profileResult = execStmt($conn, $profileQuery, $profileElem, $profileParams);
@@ -98,7 +100,7 @@
                 } else 
                     echo "Profile data not found";   
             } catch (Exception $e) {
-                $_SESSION['errorMessage'] = "This email is not available!!!!"; // Store the error message in a session variable
+                $_SESSION['errorMessage'] = "This email is not available!"; // Store the error message in a session variable
                 header("Location: update_profile.php");
                 exit();
             } finally {

@@ -9,7 +9,6 @@
 
     $conn = readWriteConnection();
 
-    // Ottieni l'ID dell'utente dalla sessione
     $userEmail = $_SESSION['username'];
 
     // Estrai l'hash della password corrente dal database
@@ -25,14 +24,10 @@
     // Verifica se il modulo è stato inviato
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Ricevi i dati dal modulo
-        $old_password = $_POST['old_password'];
-        $new_password = $_POST['new_password'];
-        $confirm_password = $_POST['confirm_password'];
-        $regex = "/^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$/";
+        $old_password = clean_input($_POST['old_password']);
+        $new_password = clean_input($_POST['new_password']);
+        $confirm_password = clean_input($_POST['confirm_password']);
 
-        if (!preg_match($regex, $new_password)) {
-            die ("Error: meet all password requirements");
-        }
         if (password_verify($old_password, $current_password_hash)) {
             if ($new_password === $confirm_password) {
                 $new_password_hash = password_hash($new_password, PASSWORD_DEFAULT);
@@ -40,8 +35,7 @@
                 $newPassQuery = "UPDATE users SET password = ? WHERE email = ?";
                 $newPassParams = "ss";
                 $newPassElem = array($new_password_hash, $userEmail);
-                $newPassResult = execStmt($conn, $newPassQuery, $newPassElem, $newPassParams);
-                if(!$newPassResult)
+                if(!execStmt($conn, $newPassQuery, $newPassElem, $newPassParams))
                     die("something went wrong");
                
                 // Reindirizza alla pagina di successo o al pannello utente
@@ -84,7 +78,7 @@
             <input type="password" name="old_password" required><br>
 
             <label for="new_password">New password:</label>
-            <input type="password" name="new_password" pattern="^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$" title="The password must contain at least one alphabetic character, one special character, one number and be at least 8 characters long." required><br>
+            <input type="password" name="new_password" required><br>
             
             <label for="confirm_password">Confirm new password:</label>
             <input type="password" name="confirm_password" required><br>
