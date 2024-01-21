@@ -7,6 +7,7 @@
         <title>Profile</title>
     </head>
     <body>
+        <?php include '../html/navbar.html'; ?>
         <header>
             <button type="button" onclick="location.href='../index.php'">Home</button>
             <div class="header">
@@ -69,5 +70,6 @@
                 }
             ?>
         </div>
+        <?php include '../html/footer.html'; ?>
     </body>
 </html>

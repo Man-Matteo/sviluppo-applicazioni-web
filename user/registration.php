@@ -11,6 +11,7 @@
         <button class="submit-btn" onclick="location.href='../index.php'">Home</button>
         <div class="container">
             <?php
+                include '../html/navbar.html';
                 require '../functions/functions.php';
                 if(IfLogged()){
                     header("Location: ../index.php");
@@ -104,5 +105,7 @@
                 return true;
             }
         </script>
+        
+        <?php include '../html/footer.html'; ?>
     </body>
 </html>

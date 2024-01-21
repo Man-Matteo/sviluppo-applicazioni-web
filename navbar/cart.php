@@ -9,6 +9,7 @@
     </head>
     <body>
         <?php
+            include '../html/navbar.html';
             session_set_cookie_params(0);
             session_start();
             require('../functions/functions.php');
@@ -55,7 +56,10 @@
             echo '<button type="submit" onclick="location.href=\'../index.php\'">Home</button>';
             echo '<button type="submit" onclick="location.href=\'../functions/checkout.php\'">Checkout</button>';
 
-            $conn->close() 
+            $conn->close();
+            include '../html/footer.html';
+
+            
         ?>
     
         <script>

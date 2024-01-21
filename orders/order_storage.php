@@ -8,6 +8,7 @@
         <title>Order history</title>
     </head>
     <body>
+        <?php include '../html/navbar.html'; ?>
         <header>
             <button type="button" onclick="location.href='../index.php'">Home</button>
             <div class="header">
@@ -60,6 +61,8 @@
                 echo "Profile data not found";   
             }
             $conn->close();
+            include '../html/footer.html';
         ?>
+
     </body>
 </html>

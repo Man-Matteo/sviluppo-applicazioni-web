@@ -9,7 +9,7 @@
 
     </head>
     <body>
-        <?php include '../navbar.html'; ?>
+        <?php include '../html/navbar.html'; ?>
         <h1>Contact us</h1>
         <p>Contattaci compilando il form qui sotto</p>
         
@@ -25,6 +25,6 @@
             
             <input type="submit" value="Submit">
         </form>
-        <?php include '../footer.html'; ?>
+        <?php include '../html/footer.html'; ?>
     </body>
 </html>

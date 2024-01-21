@@ -50,7 +50,7 @@
             }
 
             $conn->close();
-            include '../footer.html';
+            include '../html/footer.html';
         ?>
     </body>
 </html>

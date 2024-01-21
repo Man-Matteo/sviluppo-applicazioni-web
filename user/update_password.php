@@ -1,6 +1,7 @@
 <?php
     session_set_cookie_params(0);
     session_start();
+    
     require '../functions/functions.php';
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header("Location: login.php");
@@ -11,9 +12,7 @@
 
     $userEmail = $_SESSION['username'];
 
-    // Estrai l'hash della password corrente dal database
-   
-    // Verifica se il modulo è stato inviato
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $passQuery = "SELECT password FROM users WHERE email = ?";
@@ -62,6 +61,7 @@
     <title>Update Password</title>
 </head>
 <body>
+    <?php include '../html/navbar.html'; ?>
     <header>
         <button type="button" onclick="location.href='../index.php'">Home</button>
         <div class="header">
@@ -87,5 +87,6 @@
             <input type="submit" value="Update password">
         </form>
     </div>
+    <?php include '../html/footer.html'; ?>
 </body>
 </html>

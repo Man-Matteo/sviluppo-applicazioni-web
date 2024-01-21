@@ -11,6 +11,7 @@
     </head>
     <body>
         <?php
+            include '../html/navbar.html';
             $order_id = $_GET['orderId'];
         ?>
         <h1>Rate your product from 1 to 5 stars</h1><br>
@@ -36,6 +37,6 @@
         </form>
         <br>
         <button class="menu" onclick="location.href='order_storage.php'">Go back to order history</button>
-        
+        <?php include '../html/footer.html'; ?>
     </body>
 </html>

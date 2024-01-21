@@ -8,7 +8,7 @@
         <title>Login</title>
     </head>
     <body>
-       
+        <?php include '../html/navbar.html'; ?>
         <button class="submit-btn" onclick="location.href='../index.php'">Home</button>
         
         <div class="container">
@@ -85,5 +85,6 @@
                 <input type="submit" name="submit" class="submit-btn" value="Login">
             </form>
         </div>
+        <?php include '../html/footer.html'; ?>
     </body>
 </html>
