@@ -1,8 +1,11 @@
 <?php
     session_set_cookie_params(0);
     session_start();
-
     require 'functions.php';
+    if (!isset($_SESSION['username'])) {
+        header("Location: ../user/login.php");
+        exit();
+    }
     $conn = readWriteConnection();
 
     $productId = $_GET['productId'];

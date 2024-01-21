@@ -12,6 +12,10 @@
     <body>
         <?php
             include '../html/navbar.html';
+            if (!isset($_SESSION['username'])) {
+                header("Location: ../user/login.php");
+                exit();
+            }
             $order_id = $_GET['orderId'];
         ?>
         <h1>Rate your product from 1 to 5 stars</h1><br>
