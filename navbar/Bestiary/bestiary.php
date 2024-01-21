@@ -66,6 +66,9 @@
             </div>
         </div>
 
+        <!-- Footer -->
+        <iframe src="../../footer.php"></iframe>
+                    
         <script>
             // Script per aprire e chiudere il menu laterale
             function w3_open() {
