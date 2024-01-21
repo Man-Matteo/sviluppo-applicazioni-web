@@ -37,15 +37,16 @@
                 $updateRateResult = execStmt($conn, $updateRateQuery, $updateRateElem, $updateRateParams);
                 if (!$updateRateResult) 
                     die("something went wrong with the update query");
-
-                $conn -> commit();
             
                 while($row = $updateRateResult -> fetch_assoc()){
                     updateRating($row['productId']);
                 }
+
+                $conn -> commit();
+
             }catch(Exception $e){
+                error_log ("failed to update data in db: " . $e->getMessage() . "/n" , 3, "error.log");
                 $conn -> rollback();
-                echo "something went wrong with the transaction";
             }
             
             $conn->close();
