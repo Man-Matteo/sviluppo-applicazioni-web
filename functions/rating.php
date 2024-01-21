@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/order_storage_style.css">
+        <link rel="stylesheet" href="css/order_storage_style.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <title>Update Rating</title>
     </head>

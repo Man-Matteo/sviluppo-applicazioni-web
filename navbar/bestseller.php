@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <link rel="stylesheet" href="../../../css/bestseller.css">
-        <script src="../../functions.js"></script>
-        <link rel="stylesheet" href="../../../css/navbar.css">
-        <link rel="stylesheet" href="../../../css/footer.css">
+        <link rel="stylesheet" href="../css/bestseller.css">
+        <script src="../functions.js"></script>
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link rel="stylesheet" href="../css/footer.css">
         <title>Bestsellers</title>
     </head>
         <?php
@@ -36,7 +36,7 @@
                     echo "<td>{$row['name']}</td>";
                     echo "<td>{$row['price']}</td>";
                     echo "<td>{$row['description']}</td>";
-                    echo "<td><img src='../../{$row['image']}' width='100' height='100' alt='bestseller product'></td>";
+                    echo "<td><img src='../{$row['image']}' width='100' height='100' alt='bestseller product'></td>";
                     echo '<td><input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="100" value="1"></td>';
                     echo "<td><button onclick='addToCart({$row['productId']}, {$row['storage']})'>Add to cart</button></td>";
                     echo "</tr>";
@@ -50,7 +50,7 @@
             }
 
             $conn->close();
-            include '../../footer.html';
+            include '../footer.html';
         ?>
     </body>
 </html>

@@ -5,13 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contact us</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <link rel="stylesheet" href="../../../css/contact_us_style.css">
-        <link rel="stylesheet" href="../../../css/navbar.css">
-        <link rel="stylesheet" href="../../../css/footer.css">
+        <link rel="stylesheet" href="../css/contact_us_style.css">
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link rel="stylesheet" href="../css/footer.css">
 
     </head>
     <body>
-        <?php include '../../navbar.html'; ?>
+        <?php include '../navbar.html'; ?>
         <h1>Contact us</h1>
         <p>Contattaci compilando il form qui sotto</p>
         
@@ -27,6 +27,6 @@
             
             <input type="submit" value="Submit">
         </form>
-        <?php include '../../footer.html'; ?>
+        <?php include '../footer.html'; ?>
     </body>
 </html>
