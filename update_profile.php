@@ -98,7 +98,7 @@
                 } else 
                     echo "Profile data not found";   
             } catch (Exception $e) {
-                $_SESSION['errorMessage'] = "This email is already used!!!!"; // Store the error message in a session variable
+                $_SESSION['errorMessage'] = "This email is not available!!!!"; // Store the error message in a session variable
                 header("Location: update_profile.php");
                 exit();
             } finally {

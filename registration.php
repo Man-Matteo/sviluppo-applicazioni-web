@@ -33,32 +33,41 @@
 
                     // Connessione al database                    
                     $conn = readWriteConnection();
+                    $ret = false;
 
-                    //controllo che l'email non sia già presente nel database
-                    $checkQuery = "SELECT email FROM users WHERE email = ?";
-                    $checkElem = array($email);
-                    $checkParams = "s";
-                    $checkResult = execStmt($conn, $checkQuery, $checkElem, $checkParams);
-                    if (!$checkResult)
-                        die('<div class="error">Error in check query.</div>');
-        
+                    try{
+                        $conn -> begin_transaction();
 
-                    if ($checkResult->num_rows === 1) 
-                        die('<div class="error">Error: email not available.</div>');
-                    
+                        //controllo che l'email non sia già presente nel database
+                        $checkQuery = "SELECT email FROM users WHERE email = ?";
+                        $checkElem = array($email);
+                        $checkParams = "s";
+                        $checkResult = execStmt($conn, $checkQuery, $checkElem, $checkParams);
+                        if (!$checkResult)
+                            die('<div class="error">Error in check query.</div>');
+                        
+                        
 
-                    // Inserimento dei dati nel database
-                    $insertQuery = "INSERT INTO users(firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
-                    $insertParams = "ssss";
-                    $insertElem = array($firstname, $lastname, $email, $hashed_pass);
-                    $insertResult = execStmt($conn, $insertQuery, $insertElem, $insertParams);
-                    if (!$insertResult)
-                        die('<div class="error">Error in insert query.</div>');
+                        // Inserimento dei dati nel database
+                        $insertQuery = "INSERT INTO users(firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+                        $insertParams = "ssss";
+                        $insertElem = array($firstname, $lastname, $email, $hashed_pass);
+                        $insertResult = execStmt($conn, $insertQuery, $insertElem, $insertParams);
+                        if (!$insertResult)
+                            die('<div class="error">Error in insert query.</div>');
 
-                    echo '<div class="success">Registration was successful!</div>';
-                    echo '<br><br><a href="index.php"><button>Home</button></a>';
-                    $conn->close();
-                    exit();    
+                        $conn -> commit();
+
+                        echo '<div class="success">Registration was successful!</div>';
+                        echo '<br><br><a href="index.php"><button>Home</button></a>';
+                        $conn->close();
+                        exit(); 
+                    }
+                    catch(Exception $e){
+                        echo "This Email is not available!!!";
+                        error_log ("failed to insert data in db: " . $e->getMessage() . "/n" , 3, "error.log");
+                        $conn -> rollback();
+                    }
                 }
             ?>
 
@@ -88,6 +97,7 @@
             function validateConfirmPassword() {
                 var password = document.getElementById("pass").value;
                 var confirm = document.getElementById("confirm").value;
+                var message = document.getElementById("message");
                 if (password !== confirm) {
                     if(message)
                         message.innerHTML = "Passwords does not match.";
