@@ -13,7 +13,7 @@
     </head>
     <body>
         <?php
-            include '../html/navbar.html';
+            include '../partials/navbar.php';
             require '../functions/functions.php';
             $conn = readOnlyConnection();
 
@@ -48,6 +48,6 @@
             </div>
         </div>
 
-        <?php include '../html/footer.html'; ?>
+        <?php include '../partials/footer.php'; ?>
     </body>
 </html>

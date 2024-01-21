@@ -11,7 +11,7 @@
         <title>Bestsellers</title>
     </head>
         <?php
-            include '../html/navbar.html';
+            include '../partials/navbar.php';
             require '../functions/functions.php';
             $conn = readOnlyConnection();
 
@@ -50,7 +50,7 @@
             }
 
             $conn->close();
-            include '../html/footer.html';
+            include '../partials/footer.php';
         ?>
     </body>
 </html>

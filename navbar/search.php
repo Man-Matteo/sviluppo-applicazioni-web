@@ -8,9 +8,8 @@
         <title>Search results</title>
     </head>
         <?php
-            $search_query = clean_input($_GET['search']);
-
             require '../functions/functions.php';
+            $search_query = clean_input($_GET['search']);
             $conn = readOnlyConnection();
 
             // Search the products in the database

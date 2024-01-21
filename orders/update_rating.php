@@ -11,7 +11,7 @@
     </head>
     <body>
         <?php
-            include '../html/navbar.html';
+            include '../partials/navbar.php';
             if (!isset($_SESSION['username'])) {
                 header("Location: ../user/login.php");
                 exit();
@@ -41,6 +41,6 @@
         </form>
         <br>
         <button class="menu" onclick="location.href='order_storage.php'">Go back to order history</button>
-        <?php include '../html/footer.html'; ?>
+        <?php include '../partials/footer.php'; ?>
     </body>
 </html>
