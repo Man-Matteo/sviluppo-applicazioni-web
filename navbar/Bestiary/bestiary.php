@@ -67,7 +67,7 @@
         </div>
 
         <!-- Footer -->
-        <iframe src="../../footer.php"></iframe>
+        <?php include '../../footer.php'; ?>
                     
         <script>
             // Script per aprire e chiudere il menu laterale
