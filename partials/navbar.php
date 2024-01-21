@@ -9,6 +9,12 @@
         <title>Navbar</title>
     </head>
     <body class="navbar-body">
+        <?php
+            if (!isset($_SESSION['username'])) {
+                header("Location: ../user/login.php");
+                exit();
+            }
+        ?>
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-title">

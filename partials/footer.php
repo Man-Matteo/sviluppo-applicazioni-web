@@ -7,6 +7,12 @@
     <title>Footer</title>
 </head>
 <body>
+    <?php
+        if (!isset($_SESSION['username'])) {
+            header("Location: ../user/login.php");
+            exit();
+    }
+    ?>
     <footer>
         &copy; 2023 Cancelli di Baldur. All rights reserved.
     </footer>
