@@ -164,8 +164,14 @@ button {
   display: flex;
 }
 
-.buttonContainer, .slideshow-container {
+.buttonContainer {
   width: 50%;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+.slideshow-container {
+  width: 60%;
   box-sizing: border-box;
   padding: 1em;
 }
@@ -326,6 +332,8 @@ z-index: 0;
 
 .slideshow-container .mySlides img{
   width: 100%;
+  border-radius: 10px;
+  box-shadow: #0c0d0d 0px 0px 7px 7px;
   height: auto;
 }
 

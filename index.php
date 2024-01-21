@@ -96,7 +96,7 @@ session_start();
                 slideIndex++;
                 if (slideIndex > slides.length) {slideIndex = 1}
                 slides[slideIndex-1].style.display = "block";
-                setTimeout(showSlides, 3000);
+                setTimeout(showSlides, 6000);
             }
 
             /* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
