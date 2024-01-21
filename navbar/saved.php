@@ -4,8 +4,7 @@
         <title>Saved</title>
         <link rel="stylesheet" href="../css/about_us_style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <link rel="stylesheet" href="../css/navbar.css">
-        <link rel="stylesheet" href="../css/footer.css">
+
     </head>
     <body>
         <?php include '../navbar.html'; ?>

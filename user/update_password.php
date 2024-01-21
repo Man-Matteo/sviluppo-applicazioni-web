@@ -12,17 +12,20 @@
     $userEmail = $_SESSION['username'];
 
     // Estrai l'hash della password corrente dal database
-    $passQuery = "SELECT password FROM users WHERE email = ?";
-    $passParam = "s";
-    $passElem = array($userEmail);
-    $passResult = execStmt($conn, $passQuery, $passElem, $passParam);
-    if(!$passResult)
-        die("something went wrong");
-    $row = $passResult->fetch_assoc();
-    $current_password_hash = $row['password'];
-
+   
     // Verifica se il modulo è stato inviato
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $passQuery = "SELECT password FROM users WHERE email = ?";
+        $passParam = "s";
+        $passElem = array($userEmail);
+        $passResult = execStmt($conn, $passQuery, $passElem, $passParam);
+        if(!$passResult)
+            die("something went wrong");
+        $row = $passResult->fetch_assoc();
+        $current_password_hash = $row['password'];
+
+
         // Ricevi i dati dal modulo
         $old_password = clean_input($_POST['old_password']);
         $new_password = clean_input($_POST['new_password']);
@@ -55,9 +58,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="css/update_password_style.css">
-    <script src="logout.js"></script>
+    <link rel="stylesheet" href="../css/update_password_style.css">
     <title>Update Password</title>
 </head>
 <body>
