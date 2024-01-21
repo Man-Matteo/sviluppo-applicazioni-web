@@ -41,7 +41,6 @@
                     die("something went wrong with the update query");
                 
                 $conn -> commit();
-                echo "<h1>Rating updated successfully!</h1>";
 
                 while($row = $updateRateResult -> fetch_assoc()){
                     updateRating($row['productId']);
@@ -54,8 +53,7 @@
             }
             
             $conn->close();
+            header("Location: ../navbar/order_storage.php");
         ?>
-        <br>
-        <a href="../orders/order_storage.php"><button type='submit'>Go back to order history</button></a>
     </body>
 </html>
