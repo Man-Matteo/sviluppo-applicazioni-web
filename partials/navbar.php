@@ -12,7 +12,7 @@
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-title">
-                    <img alt="Title" src="../Images/title_white.png">
+                    <a href="../index.php"><img alt="Title" src="../Images/title_white.png"></a>
                 </div>
 
                 <form class="navbar-search" action="../navbar/search.php" method="get">
