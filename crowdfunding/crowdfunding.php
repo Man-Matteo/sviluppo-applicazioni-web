@@ -22,6 +22,7 @@
     } else {
         $conn = readOnlyConnection();
 
+        // Check if the donation amount is valid
         $totalAmountResult = $conn->query("SELECT SUM(donation_amount) AS total_amount FROM crowdfunding");
         if (!$totalAmountResult)
             die("Error in total amount query");
@@ -67,7 +68,7 @@
     <?php } ?>
 
     <script>
-        // Aggiorna la larghezza della barra di avanzamento al caricamento della pagina
+        // Aggiorna la larghezza della barra di avanzamento quando la pagina viene caricata
         document.addEventListener('DOMContentLoaded', function() {
             updateProgressBarWidth();
         });
