@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/style_order_storage.css">
+        <!--<link rel="stylesheet" href="../css/style_order_storage.css">-->
         <link rel="stylesheet" href="../css/style_rating.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,8 +36,8 @@
                 <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
                 <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>
                 </div>
-                <br>
             </div>
+            <br>
             <button type='submit' value='submit'>Rate</button>
         </form>
         <br>

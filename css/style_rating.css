@@ -1,3 +1,14 @@
+body{
+    background-color: #f5f5f5;
+    text-align: center;
+    font-family: 'IM Fell English', serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+
+}
+
 .star-rating {
     font-size: 0;
   }
@@ -27,3 +38,16 @@
   .star-rating__input:checked ~ .star-rating__ico {
     color: #FF5722;
   }
+
+  button {
+    align-items: center;
+    padding: 10px 20px; /* Maggior spaziatura all'interno del pulsante */
+    font-size: 18px; /* Dimensione del testo del pulsante */
+    font-family: 'IM Fell English', serif; /* Utilizza il font IM Fell English per i pulsanti */
+    background-color: #FFA500; /* Colore di sfondo del pulsante */
+    color: black; /* Colore del testo del pulsante */
+    border: none;
+    border-radius: 5px; /* Bordi arrotondati */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Effetto di transizione del colore di sfondo */
+}
