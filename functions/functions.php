@@ -1,5 +1,11 @@
 <?php
     function updateOrAddCart($conn, $userEmail, $productId, $quantity) {
+
+        if(!IfLogged()){
+            echo "You must have to Sign Up or Sign In to add Product to the Cart!!!!";
+            header("Location: ../user/login.php");
+            exit();
+        }
         //recupero il carrello dell'utente
         $selectQuery = "SELECT * FROM cart WHERE email = ? AND productId = ?";
         $selectParams = "si";

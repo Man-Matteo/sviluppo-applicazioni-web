@@ -48,13 +48,14 @@
                 echo "</table>";
 
                 echo "<p>Total to pay: €{$total}</p>";
-            } else 
+                echo '<button type="submit" onclick="location.href=\'../orders/checkout.php\'">Checkout</button>';
+            } else {
                 echo "<p>Cart is empty.</p>";
+            }
             
 
             echo '<button type="submit" onclick="location.href=\'bestiary.php\'">Keep shopping</button>';
-            echo '<button type="submit" onclick="location.href=\'../index.php\'">Home</button>';
-            echo '<button type="submit" onclick="location.href=\'../orders/checkout.php\'">Checkout</button>';
+            
 
             $conn->close();
             include '../partials/footer.php';

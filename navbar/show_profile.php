@@ -9,7 +9,6 @@
     <body>
         <?php include '../partials/navbar.php'; ?>
         <header>
-            <button type="button" onclick="location.href='../index.php'">Home</button>
             <div class="header">
                 <h1>Account Profile</h1>
             </div>

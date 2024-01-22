@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php include '../partials/navbar.php'; ?>
-        <button class="submit-btn" onclick="location.href='../index.php'">Home</button>
+        
         
         <div class="container">
             <?php
@@ -45,7 +45,8 @@
                             $_SESSION['logged_in'] = true;
                             $_SESSION['username'] = $email;
                             $_SESSION['email'] = $email;
-                        
+                            
+                            /*
                             $temp = session_id();
                             //update della tabella cart cambiando il session id con l'email dell'utente loggato
                             $updateCartQuery = "UPDATE cart SET email = ? WHERE email = ?";
@@ -53,9 +54,11 @@
                             $updateCartElem = array($email, $temp);
                             $updateCartResult = execStmt($conn, $updateCartQuery, $updateCartElem, $updateCartParams);
                             //controllare valori di ritorno di execStmt forse si rompe tutto
-
+                            */
+                            
                             header("Location: ../index.php");
                             exit();
+                            
                         } else
                             displayError("Wrong Email or Password");
 
