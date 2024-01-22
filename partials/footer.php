@@ -7,6 +7,8 @@
     <title>Footer</title>
 </head>
 <body>
+    <div class="body-div" style="margin-bottom:45%"></div>
+
     <footer>
         &copy; 2023 Cancelli di Baldur. All rights reserved.
     </footer>
