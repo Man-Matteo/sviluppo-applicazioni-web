@@ -21,12 +21,12 @@
                 </form>
                 
                 <ul class="navbar-nav-links">
-                    <li><a href='../navbar/bestiary.php'>Bestiary</a></li>
-                    <li><a href='../navbar/bestseller.php'>Bestseller</a></li>
-                    <li><a href='../navbar/cart.php'>Cart</a></li>
-                    <li><a href='../show_profile.php'>Profile</a></li>
-                    <li><a href='../navbar/contact_us.php'>Contact us</a></li>
-                    <li><a href='../crowdfunding/crowdfunding.php'>Support us</a></li>
+                    <li><a href='https://saw21.dibris.unige.it/~S4628329/navbar/bestiary.php'>Bestiary</a></li>
+                    <li><a href='https://saw21.dibris.unige.it/~S4628329/navbar/bestseller.php'>Bestseller</a></li>
+                    <li><a href='https://saw21.dibris.unige.it/~S4628329/navbar/cart.php'>Cart</a></li>
+                    <li><a href='https://saw21.dibris.unige.it/~S4628329/show_profile.php'>Profile</a></li>
+                    <li><a href='https://saw21.dibris.unige.it/~S4628329/navbar/contact_us.php'>Contact us</a></li>
+                    <li><a href='https://saw21.dibris.unige.it/~S4628329/crowdfunding/crowdfunding.php'>Support us</a></li>
                 </ul>
             </div>
         </nav>

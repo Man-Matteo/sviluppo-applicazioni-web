@@ -13,13 +13,15 @@
         
         <div class="container">
             <?php
-            require('functions/functions.php');
-            if(IfLogged()){
-                header("Location: index.php");
-                exit();
-            }
-
-
+                if(isset($_GET["registration"])) 
+                    echo '<div class="success">Registration successful!</div>';
+                      
+                require('functions/functions.php');
+                if(IfLogged()){
+                    header("Location: index.php");
+                    exit();
+                }
+                
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $email = clean_input($_POST["email"]);
                     $password = clean_input($_POST["pass"]);

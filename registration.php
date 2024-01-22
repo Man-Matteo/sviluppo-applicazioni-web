@@ -36,37 +36,40 @@
 
                     // Connessione al database                    
                     $conn = readWriteConnection();
-                    $ret = false;
 
                     try{
                         $conn -> begin_transaction();
-
+                        
                         //controllo che l'email non sia già presente nel database
                         $checkQuery = "SELECT email FROM users WHERE email = ?";
                         $checkElem = array($email);
                         $checkParams = "s";
                         $checkResult = execStmt($conn, $checkQuery, $checkElem, $checkParams);
-                        if (!$checkResult)
+                       
+                        /*if (!$checkResult)
                             die('<div class="error">something went wrong.</div>');
+                        */
+                        if ($checkResult -> num_rows > 0)
+                            die('<div class="error">Error: email already in use.</div>');
                         
                         // Inserimento dei dati nel database
                         $insertQuery = "INSERT INTO users(firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
                         $insertParams = "ssss";
                         $insertElem = array($firstname, $lastname, $email, $hashed_pass);
                         $insertResult = execStmt($conn, $insertQuery, $insertElem, $insertParams);
+                      
                         if (!$insertResult)
                             die('<div class="error">Error in insert query.</div>');
-
+                       
                         $conn -> commit();
 
-                        echo '<div class="success">Registration was successful!</div>';
-                        echo '<br><br><a href="index.php"><button>Home</button></a>';
+                        
                         $conn->close();
-                        exit(); 
+                        header("Location: login.php?registration=success");
+                        exit();
                     }
                     catch(Exception $e){
                         echo "This Email is not available!!!";
-                        error_log ("failed to insert data in db: " . $e->getMessage() . "/n" , 3, "error.log");
                         $conn -> rollback();
                     }
                 }
