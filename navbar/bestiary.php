@@ -30,12 +30,14 @@
             <div class="w3-row-padding w3-padding-16 w3-center" id="monsters">
                 <?php
                     while ($row = $result->fetch_assoc()) {
-                        echo '<div class="w3-quarter" style="margin: 5px;">';
+                        echo '<div class="w3-quarter" style="margin-bottom: 10px; display: flex; flex-direction: column; height: 100%;">';
                         echo "<img src='../{$row["image"]}' alt='{$row["name"]}' style='width:100%; border: 3px solid #000; border-radius: 10px; box-shadow: 10px 5px 8px black;'>";
                         echo "<h3 style='font-size: 40px; text-shadow: 2px 2px white;'>{$row['name']}</h3>";
                         echo "<p style='color:black; font-size: 30px; background-color: #FFA500; border-radius: 5px;'>Price: €{$row['price']}</p>";
                         echo "<p style='color:black; font-size: 20px; background-color: #FFA500; border-radius: 5px;'>Availability: {$row['storage']}</p>";
+                        echo "<div style='flex-grow: 1;'>";
                         echo "<p style='color:black; font-size: 20px; background-color: #d4af37; border-radius: 5px;'>{$row['description']}</p>";
+                        echo '</div>';
                         echo "<p style='color:black; font-size: 30px; background-color: #d4af37; border-radius: 5px;'>Rating: {$row['rating']}</p>";
                         echo '<input type="number" id="quantity_' . $row["productId"] . '" name="quantity" min="1" max="' . $row['storage'] . '" value="1" style="font-size: 20px;">';                        
                         echo "<button onclick='addToCart({$row['productId']}, {$row['storage']})'>Add to cart</button>";
