@@ -35,7 +35,7 @@
     }
     ?>
     <div id="progress-bar">
-        <div id="progress" style="width: <?php echo htmlspecialchars($achievedPercentage); ?>%"><?php echo "$" . number_format($total, 2); ?></div>
+        <div id="progress" style="width: <?php echo htmlspecialchars($achievedPercentage); ?>%"><?php echo "€ " . number_format($total, 2); ?></div>
     </div>
 
     <?php
@@ -53,7 +53,7 @@
                 <input type="text" id="lastname" name="lastname" required><br>
 
                 <label for="credit_card_number">Credit card number:</label>
-                <input type="text" id="credit_card_number" name="credit_card_number" required><br>
+                <input type="text" id="credit_card_number" name="credit_card_number" pattern="\d{16}" required ><br>
 
                 <label for="donation_amount">Donation amount:</label>
                 <?php
