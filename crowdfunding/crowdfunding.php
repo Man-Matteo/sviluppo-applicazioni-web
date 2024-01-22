@@ -55,8 +55,8 @@
                 <input type="text" id="credit_card_number" name="credit_card_number" required><br>
 
                 <label for="donation_amount">Donation amount:</label>
-                <input type="number" id="donation_amount" name="donation_amount" required oninput="checkDonationAmount(this)"><br>
-
+                <input type="number" id="donation_amount" name="donation_amount" required onchange="checkDonationAmount(this, $target, $total)"><br>
+            
                 <button type="submit" id="donateButton">Donate</button>
             </form>
         </div>
@@ -80,7 +80,31 @@
             progress.style.width = achievedPercentage + '%';
         }
 
-        function checkDonationAmount(input) {
+        // Funzione per controllare che l'importo della donazione sia valido controllando anche che non superi il target
+        function checkDonationAmount(input, target, total) {
+            var donationAmount = input.value;
+            if (isNaN(donationAmount) || donationAmount <= 0 || donationAmount > target - total) {
+                input.setCustomValidity("Please enter a valid donation amount");
+            } else {
+                input.setCustomValidity("");
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+<!--         function checkDonationAmount(input) {
             var maxDonation = 10000; 
 
             var donationAmount = parseFloat(input.value);
@@ -90,12 +114,9 @@
             else if (donationAmount > maxDonation) {
                 alert("Maximum donation amount exceeded. The maximum allowed is $" + maxDonation + ".");
                 input.value = maxDonation;
-            } else if (donationAmount + <?php echo $total; ?> > maxDonation) {
+            } else if (donationAmount +  echo $total; ?> > maxDonation) {
                 alert("Exceeding the maximum threshold.");
-                input.value = maxDonation - <?php echo $total; ?>;
+                input.value = maxDonation - echo $total; ?>;
             }
         }
-    </script>
-</body>
-
-</html>
+         -->
