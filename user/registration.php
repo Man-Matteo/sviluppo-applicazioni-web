@@ -9,7 +9,6 @@
     </head>
     <body>
         <?php include '../partials/navbar.php'; ?>
-        <button class="submit-btn" onclick="location.href='../index.php'">Home</button>
         <div class="container">
             <?php
                 

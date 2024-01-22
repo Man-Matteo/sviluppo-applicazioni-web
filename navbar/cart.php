@@ -53,7 +53,6 @@
             
 
             echo '<button type="submit" onclick="location.href=\'bestiary.php\'">Keep shopping</button>';
-            echo '<button type="submit" onclick="location.href=\'../index.php\'">Home</button>';
             echo '<button type="submit" onclick="location.href=\'../orders/checkout.php\'">Checkout</button>';
 
             $conn->close();

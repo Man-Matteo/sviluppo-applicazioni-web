@@ -9,6 +9,7 @@
         <title>Search results</title>
     </head>
         <?php
+            include '../partials/navbar.php';
             require '../functions/functions.php';
             $search_query = clean_input($_GET['search']);
             $conn = readOnlyConnection();
@@ -40,13 +41,8 @@
                 echo "No results found";
                 
             $conn->close();
+            include '../partials/footer.php';
         ?>
 
-        <!-- <script>
-            function addToCart(productId) {
-                var quantity = document.getElementById("quantity_" + productId).value;
-                window.location.href = "../functions/add_product.php?productId=" + productId + "&quantity=" + quantity;
-            }
-        </script> -->
     </body>
 </html>
