@@ -13,7 +13,7 @@
         <h1>Contact us</h1>
         <p>Contattaci compilando il form qui sotto</p>
         
-        <form action="process_contact.php" method="POST">
+        <form action="process_contact.php" method="POST" class="form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
             
