@@ -33,6 +33,8 @@
                     $newFirstname = !empty($_POST['firstname']) ? clean_input($_POST['firstname']) : null;
                     $newLastname = !empty($_POST['lastname']) ? clean_input($_POST['lastname']) : null;
                     $newEmail = !empty($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : null;
+                    if (!$newEmail)
+                        die('Error: invalid email.');
 
                     if ($userEmail != $newEmail) 
                         $_SESSION['username'] = $newEmail;
