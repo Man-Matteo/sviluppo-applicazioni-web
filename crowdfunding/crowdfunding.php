@@ -54,7 +54,7 @@
                 <input type="text" id="lastname" name="lastname" required><br>
 
                 <label for="credit_card_number">Credit card number:</label>
-                <input type="text" id="credit_card_number" name="credit_card_number" pattern="\d{16}" required ><br>
+                <input type="text" id="credit_card_number" name="credit_card_number" pattern="\d{16}" title="Insert all the 16 digits of the credit card" ><br>
 
                 <label for="donation_amount">Donation amount:</label>
                 <?php

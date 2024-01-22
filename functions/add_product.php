@@ -5,7 +5,7 @@
 
     $productId = $_GET['productId'];
     $quantity = $_GET['quantity'];
-    $userEmail =  $_SESSION['email'];
+    $userEmail =  $_SESSION['username'];
     //check if quantity is a number and if it is greater than 0
     if (!is_numeric($quantity) || $quantity <= 0) {
         die("Invalid quantity");

@@ -16,16 +16,15 @@
             }
             session_set_cookie_params(0);
             session_start();
-            
-            //controllo se l'utente è loggato, aòtrimenti lo mando al login
-            
-           
-            $conn = readWriteConnection();
 
             $order_id = $_POST['order_id'];
             $rating = $_POST['rating'];
             $userEmail = $_SESSION['username'];
-
+            //check if rating is between 1 and 5
+            if($rating < 1 || $rating > 5){
+                die("rating must be between 1 and 5");
+            }
+            $conn = readWriteConnection();
             try{
 
                 $conn -> begin_transaction();

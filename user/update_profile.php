@@ -73,7 +73,7 @@
                                 echo "<input type='text' id='lastname' name='lastname' value='" . $row['lastname'] . "'><br>";
 
                                 echo "<label for='email'>Email:</label><br>";
-                                echo "<input type='text' id='email' name='email' value='" . $row['email'] . "'><br>";
+                                echo "<input type='email' id='email' name='email' value='" . $row['email'] . "'><br>";
                                 if (isset($_SESSION['errorMessage'])) {
                                     echo "<p style='font-size:15px'>";
                                     echo $_SESSION['errorMessage'];

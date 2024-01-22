@@ -13,7 +13,12 @@
     $credit_card_number = clean_input($_POST['credit_card_number']);
     $donation_amount = clean_input($_POST['donation_amount']);
 
-  
+    //cehck if credit card number is valid
+    if (!preg_match("/^[0-9]{16}$/", $credit_card_number)) {
+        echo "<p>Credit card number not valid.</p>";
+        exit();
+    }
+
     if (!is_numeric($donation_amount) || $donation_amount <= 0) {
         echo "<p>Donation amount not valid.</p>";
         exit();
