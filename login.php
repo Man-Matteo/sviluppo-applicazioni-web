@@ -13,9 +13,9 @@
         
         <div class="container">
             <?php
-                if(isset($_GET["registration"])) 
+                if(isset($_GET["registration"]))
                     echo '<div class="success">Registration successful!</div>';
-                      
+    
                 require('functions/functions.php');
                 if(IfLogged()){
                     header("Location: index.php");
