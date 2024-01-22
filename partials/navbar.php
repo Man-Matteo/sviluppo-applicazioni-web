@@ -26,6 +26,7 @@
                     <li><a href='../navbar/cart.php'>Cart</a></li>
                     <li><a href='../navbar/show_profile.php'>Profile</a></li>
                     <li><a href='../navbar/contact_us.php'>Contact us</a></li>
+                    <li><a href='../crowdfunding/crowdfunding.php'>Support us</a></li>
                 </ul>
             </div>
         </nav>

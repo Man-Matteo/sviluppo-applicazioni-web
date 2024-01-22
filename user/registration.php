@@ -22,6 +22,8 @@
                     $firstname = clean_input($_POST["firstname"]);
                     $lastname = clean_input($_POST["lastname"]);
                     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+                    if (!$email)
+                        die('Error: invalid email.');
                     $password = clean_input($_POST["pass"]);
                     $confirm = clean_input($_POST["confirm"]);
 

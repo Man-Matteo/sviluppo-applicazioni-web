@@ -39,8 +39,6 @@
                     echo "<button onclick='removeFromCart({$row['productId']}, {$row['quantity']})'>Remove from cart</button>";
                     echo "</tr>";
 
-
-
                     $productTotal = $row['price'] * $row['quantity'];
                     $total += $productTotal;
                 }
@@ -59,8 +57,6 @@
 
             $conn->close();
             include '../partials/footer.php';
-
-            
         ?>
     
         <script>

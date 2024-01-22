@@ -22,6 +22,7 @@
     } else {
         $conn = readOnlyConnection();
 
+        // Check if the donation amount is valid
         $totalAmountResult = $conn->query("SELECT SUM(donation_amount) AS total_amount FROM crowdfunding");
         if (!$totalAmountResult)
             die("Error in total amount query");
@@ -35,7 +36,7 @@
     }
     ?>
     <div id="progress-bar">
-        <div id="progress" style="width: <?php echo htmlspecialchars($achievedPercentage); ?>%"><?php echo "$" . number_format($total, 2); ?></div>
+        <div id="progress" style="width: <?php echo htmlspecialchars($achievedPercentage); ?>%"><?php echo "€ " . number_format($total, 2); ?></div>
     </div>
 
     <?php
@@ -53,7 +54,7 @@
                 <input type="text" id="lastname" name="lastname" required><br>
 
                 <label for="credit_card_number">Credit card number:</label>
-                <input type="text" id="credit_card_number" name="credit_card_number" required><br>
+                <input type="text" id="credit_card_number" name="credit_card_number" pattern="\d{16}" title="Insert all the 16 digits of the credit card" ><br>
 
                 <label for="donation_amount">Donation amount:</label>
                 <?php
@@ -67,7 +68,7 @@
     <?php } ?>
 
     <script>
-        // Aggiorna la larghezza della barra di avanzamento al caricamento della pagina
+        // Aggiorna la larghezza della barra di avanzamento quando la pagina viene caricata
         document.addEventListener('DOMContentLoaded', function() {
             updateProgressBarWidth();
         });

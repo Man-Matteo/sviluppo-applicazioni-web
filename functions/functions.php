@@ -44,9 +44,9 @@
 
     function readOnlyConnection() {
         $host = 'localhost';
-        $username = 'read_only';
-        $password = 'read_only';
-        $database = 'baldurdb';
+        $username = 'S4628329';
+        $password = 'saw2023';
+        $database = 'S4628329';
     
         $conn = new mysqli($host, $username, $password, $database);
     
@@ -61,9 +61,9 @@
 
     function readWriteConnection() {
         $host = 'localhost';
-        $username = 'read_write';
-        $password = 'read_write';
-        $database = 'baldurdb';
+        $username = 'S4628329';
+        $password = 'saw2023';
+        $database = 'S4628329';
     
         $conn = new mysqli($host, $username, $password, $database);
     

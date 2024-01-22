@@ -25,7 +25,6 @@
         $current_password_hash = $row['password'];
 
 
-        // Ricevi i dati dal modulo
         $old_password = clean_input($_POST['old_password']);
         $new_password = clean_input($_POST['new_password']);
         $confirm_password = clean_input($_POST['confirm_password']);
