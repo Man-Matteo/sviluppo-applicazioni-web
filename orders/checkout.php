@@ -20,6 +20,17 @@
                 header('Location: ../user/login.php');
                 exit();
             }
+
+            //eseguo una query per contrtollare che il carrello non sia vuoto
+            $cartQuery = "SELECT * FROM cart WHERE email = ?";
+            $cartParams = "s";
+            $cartElem = array($userEmail);
+            $cartResult = execStmt($conn, $cartQuery, $cartElem, $cartParams);
+            if(!$cartResult)
+                die("something went wrong");
+            if($cartResult->num_rows == 0)
+                die("cart is empty");
+
             try {
                 $conn->begin_transaction();
                 // Eseguo la query per ottenere i prodotti nel carrello
