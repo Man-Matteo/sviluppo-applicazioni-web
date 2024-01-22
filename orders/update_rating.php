@@ -23,7 +23,7 @@
         <h1>Rate your product from 1 to 5 stars</h1><br>
         <form action='../functions/rating.php' method='post'>
             <input type='hidden' id='order_id' name='order_id' value='<?php echo $order_id; ?>'><br>
-            <label for='evaluation'>Rating:</label>
+            <label for='rating'>Rating:</label>
             <div class="star-rating">
                 <div class="star-rating__wrap">
                 <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
