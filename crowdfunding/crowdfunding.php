@@ -43,7 +43,7 @@
         echo "<p id='goal-reached-message'>Congratulations! The donation goal has been reached.</p>";
     } else {
     ?>
-        <div id="donation-form">
+        <div class="donation-form">
             <h2>Donation</h2>
             <form id="crowdfunding-form" action="crowdfunding_process.php" method="post" onsubmit="return validateForm(<?php echo $target; ?>, <?php echo $total; ?>)">
                 <label for="firstname">Firstname:</label>
