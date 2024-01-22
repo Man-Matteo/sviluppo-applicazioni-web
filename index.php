@@ -26,20 +26,18 @@ session_start();
 
             <?php
                 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-                    // Utente loggato, mostra il menu completo
                     echo '
                     <div class="dropdown">
                         <button id="myBtn" class="dropbtn">My Account ↓</button>
                         <div id="myDropdown" class="dropdown-content">     
-                            <a href="navbar/show_profile.php">Show profile</a>
+                            <a href="show_profile.php">Show profile</a>
                             <a href="navbar/cart.php">Cart</a>
                             <a href="crowdfunding/crowdfunding.php">Support us</a>
-                            <a href="functions/logout.php">Logout</a>
+                            <a href="logout.php">Logout</a>
                         </div>
                     </div>';
                 } else {
-                    // Utente non loggato, mostra solo il pulsante "Login"
-                    echo '<button type="submit" class="dropbtn login-button" onclick="location.href=\'user/login.php\'">Login</button>';
+                    echo '<button type="submit" class="dropbtn login-button" onclick="location.href=\'login.php\'">Login</button>';
                 }
             ?>
         </header>

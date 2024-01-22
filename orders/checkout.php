@@ -17,7 +17,7 @@
             if (isset($_SESSION['username'])) 
                 $userEmail = $_SESSION['username'];
             else {
-                header('Location: ../user/login.php');
+                header('Location: ../login.php');
                 exit();
             }
 

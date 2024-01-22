@@ -2,7 +2,7 @@
     session_set_cookie_params(0);
     session_start();
     
-    require '../functions/functions.php';
+    require 'functions/functions.php';
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header("Location: login.php");
         exit();
@@ -40,7 +40,7 @@
                     die("something went wrong");
                
                 // Reindirizza alla pagina di successo o al pannello utente
-                header('Location: ../functions/logout.php');
+                header('Location: logout.php');
                 exit();
             } else 
                 $error_message = "New passwords does not match.";   
@@ -56,11 +56,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/update_password_style.css">
+    <link rel="stylesheet" href="css/update_password_style.css">
     <title>Update Password</title>
 </head>
 <body>
-    <?php include '../partials/navbar.php'; ?>
+    <?php include 'partials/navbar.php'; ?>
     <header>
         <div class="header">
             <h1>Update Password</h1>
@@ -85,9 +85,9 @@
             <button type="submit" value="Update password">Update password</button>
         </form>
         <br>
-        <button type="submit" onclick="location.href='../navbar/show_profile.php'">Go back to your profile</button>
+        <button type="submit" onclick="location.href='show_profile.php'">Go back to your profile</button>
 
     </div>
-    <?php include '../partials/footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>

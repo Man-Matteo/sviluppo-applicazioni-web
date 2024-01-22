@@ -16,7 +16,7 @@
     require('../functions/functions.php');
 
     if (!isset($_SESSION['username'])) {
-        header("Location: ../user/login.php");
+        header("Location: ../login.php");
         exit();
 
     } else {

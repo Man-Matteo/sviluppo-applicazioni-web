@@ -14,7 +14,7 @@
             include '../partials/navbar.php';
             require '../functions/functions.php';
             if(!IfLogged()){
-                header("Location: ../user/login.php");
+                header("Location: ../login.php");
                 exit();
             }
             $order_id = $_GET['orderId'];

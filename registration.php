@@ -4,17 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <link rel="stylesheet" href="../css/registration_style.css">
+        <link rel="stylesheet" href="css/registration_style.css">
         <title>Registration</title>
     </head>
     <body>
-        <?php include '../partials/navbar.php'; ?>
+        <?php include 'partials/navbar.php'; ?>
         <div class="container">
             <?php
                 
-                require '../functions/functions.php';
+                require 'functions/functions.php';
                 if(IfLogged()){
-                    header("Location: ../index.php");
+                    header("Location: index.php");
                     exit();
                 }    
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -60,7 +60,7 @@
                         $conn -> commit();
 
                         echo '<div class="success">Registration was successful!</div>';
-                        echo '<br><br><a href="../index.php"><button>Home</button></a>';
+                        echo '<br><br><a href="index.php"><button>Home</button></a>';
                         $conn->close();
                         exit(); 
                     }
@@ -108,6 +108,6 @@
             }
         </script>
         
-        <?php include '../partials/footer.php'; ?>
+        <?php include 'partials/footer.php'; ?>
     </body>
 </html>

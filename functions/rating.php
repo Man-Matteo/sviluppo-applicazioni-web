@@ -11,7 +11,7 @@
         <?php
             require "functions.php";
             if(!IfLogged()){
-                header("Location: ../user/login.php");
+                header("Location: ../login.php");
                 exit();
             }
             session_set_cookie_params(0);

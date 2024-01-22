@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/update_profile_style.css">
+        <link rel="stylesheet" href="css/update_profile_style.css">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
         <title>Update Profile</title>
     </head>
     <body>
-        <?php include '../partials/navbar.php'; ?>
+        <?php include 'partials/navbar.php'; ?>
         <header>
             <div class="header">
                 <h1>Update Profile</h1>
@@ -17,7 +17,7 @@
         <?php
             session_set_cookie_params(0);
             session_start();
-            require '../functions/functions.php';
+            require 'functions/functions.php';
             if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
                 header("Location: login.php");
                 exit();
@@ -55,7 +55,7 @@
                         die("Something went wrong with the update query");
                     }
 
-                    header("Location: ../navbar/show_profile.php");
+                    header("Location: show_profile.php");
                     exit();
                 }
 
@@ -99,7 +99,7 @@
                                 echo "<button type='submit' value='Save'>Save</button>";
                                 echo "<br>";
                             echo "</form>";
-                            echo '<button type="submit" onclick="location.href=\'../navbar/show_profile.php\'">Go back to your profile</button>';
+                            echo '<button type="submit" onclick="location.href=\'show_profile.php\'">Go back to your profile</button>';
                     }
                     echo "</div>";
                 } else 
@@ -111,7 +111,7 @@
             } finally {
                 $conn->close();
             }
-        include '../partials/footer.php';
+        include 'partials/footer.php';
         ?>
     </body>
 </html>

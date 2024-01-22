@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM+Fell+English">
-        <link rel="stylesheet" href="../css/login_style.css">
+        <link rel="stylesheet" href="css/login_style.css">
         <title>Login</title>
     </head>
     <body>
-        <?php include '../partials/navbar.php'; ?>
+        <?php include 'partials/navbar.php'; ?>
         
         
         <div class="container">
             <?php
-            require('../functions/functions.php');
+            require('functions/functions.php');
             if(IfLogged()){
-                header("Location: ../index.php");
+                header("Location: index.php");
                 exit();
             }
 
@@ -56,7 +56,7 @@
                             //controllare valori di ritorno di execStmt forse si rompe tutto
                             */
                             
-                            header("Location: ../index.php");
+                            header("Location: index.php");
                             exit();
                             
                         } else
@@ -88,6 +88,6 @@
                 <input type="submit" name="submit" class="submit-btn" value="Login">
             </form>
         </div>
-        <?php include '../partials/footer.php'; ?>
+        <?php include 'partials/footer.php'; ?>
     </body>
 </html>

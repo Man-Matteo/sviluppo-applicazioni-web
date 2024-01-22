@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/show_profile_style.css">
+        <link rel="stylesheet" href="css/show_profile_style.css">
         <title>Profile</title>
     </head>
     <body>
-        <?php include '../partials/navbar.php'; ?>
+        <?php include 'partials/navbar.php'; ?>
         <header>
             <div class="header">
                 <h1>Account Profile</h1>
@@ -17,10 +17,10 @@
             <?php
                 session_set_cookie_params(0);
                 session_start();
-                require '../functions/functions.php';
+                require 'functions/functions.php';
                 
                 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-                    header("Location: ../user/login.php");
+                    header("Location: login.php");
                     exit();
                 }
 
@@ -53,10 +53,10 @@
                         echo "</table>";
                         echo "<div class='profile-buttons'>";
 
-                        echo "<button type='button' onclick='location.href=\"../user/update_profile.php\"'>Modify profile</button>";
-                        echo "<button type='button' onclick='location.href=\"../user/update_password.php\"'>Modify password</button>";
-                        echo "<button type='submit' onclick='location.href=\"../orders/order_storage.php\"'>Order history</button>";
-                        echo "<button type='submit' onclick='location.href=\"../functions/logout.php\"'>Logout</button>";
+                        echo "<button type='button' onclick='location.href=\"update_profile.php\"'>Modify profile</button>";
+                        echo "<button type='button' onclick='location.href=\"update_password.php\"'>Modify password</button>";
+                        echo "<button type='submit' onclick='location.href=\"orders/order_storage.php\"'>Order history</button>";
+                        echo "<button type='submit' onclick='location.href=\"logout.php\"'>Logout</button>";
                         
                         echo "</div>";
 
@@ -69,6 +69,6 @@
                 }
             ?>
         </div>
-        <?php include '../partials/footer.php'; ?>
+        <?php include 'partials/footer.php'; ?>
     </body>
 </html>

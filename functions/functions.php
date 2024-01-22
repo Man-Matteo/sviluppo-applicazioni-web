@@ -3,7 +3,7 @@
 
         if(!IfLogged()){
             echo "You must have to Sign Up or Sign In to add Product to the Cart!!!!";
-            header("Location: ../user/login.php");
+            header("Location: ../login.php");
             exit();
         }
         //recupero il carrello dell'utente
