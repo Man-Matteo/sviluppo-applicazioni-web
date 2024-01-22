@@ -44,9 +44,9 @@
                 header('Location: ../functions/logout.php');
                 exit();
             } else 
-                $error_message = "new passwords does not match.";   
+                $error_message = "New passwords does not match.";   
         } else 
-            $error_message = "old password is not correct.";
+            $error_message = "Old password is not correct.";
     }
 
     $conn->close();
@@ -63,13 +63,12 @@
 <body>
     <?php include '../partials/navbar.php'; ?>
     <header>
-        <button type="button" onclick="location.href='../index.php'">Home</button>
         <div class="header">
             <h1>Update Password</h1>
         </div>
     </header>
     <?php if (isset($error_message)) : ?>
-        <p style="color: red;"><?php echo $error_message; ?></p>
+        <p style="color: black;"><?php echo $error_message; ?></p>
     <?php endif; ?>
     
     <div class="container">
@@ -84,8 +83,11 @@
             <label for="confirm_password">Confirm new password:</label>
             <input type="password" name="confirm_password" required><br>
 
-            <input type="submit" value="Update password">
+            <button type="submit" value="Update password">Update password</button>
         </form>
+        <br>
+        <button type="submit" onclick="location.href='../navbar/show_profile.php'">Go back to your profile</button>
+
     </div>
     <?php include '../partials/footer.php'; ?>
 </body>
