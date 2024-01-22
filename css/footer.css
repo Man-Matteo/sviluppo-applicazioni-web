@@ -1,10 +1,7 @@
 footer {
-    position: absolute;
+    position: relative;
     background-color: #333;
-    color: #fff; 
-    bottom: 0;
-    width: 1420px;
-    padding: 10px; 
-    align-items: baseline;
+    color: #fff;
+    padding: 10px;
     text-align: center; 
 }
