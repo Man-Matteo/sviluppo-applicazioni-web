@@ -46,9 +46,9 @@
             } else {
                 echo "No results found";
                 echo "<br>";
-                echo "<a href='../index.php'>Torna alla home</a>";
             }
 
+            echo "<button type='submit' onclick='location.href=\"../index.php\"'>Go back to Home</button>";
             $conn->close();
             include '../partials/footer.php';
         ?>
