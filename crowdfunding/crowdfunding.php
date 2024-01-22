@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    include('../partials/navbar.php');
     session_set_cookie_params(0);
     session_start();
     require('../functions/functions.php');
@@ -44,7 +45,7 @@
     ?>
         <div id="donation-form">
             <h2>Donation</h2>
-            <form id="crowdfunding-form" action="crowdfunding_process.php" method="post">
+            <form id="crowdfunding-form" action="crowdfunding_process.php" method="post" onsubmit="return validateForm(<?php echo $target; ?>, <?php echo $total; ?>)">
                 <label for="firstname">Firstname:</label>
                 <input type="text" id="firstname" name="firstname" required><br>
 
@@ -55,7 +56,10 @@
                 <input type="text" id="credit_card_number" name="credit_card_number" required><br>
 
                 <label for="donation_amount">Donation amount:</label>
-                <input type="number" id="donation_amount" name="donation_amount" required onchange="checkDonationAmount(this, $target, $total)"><br>
+                <?php
+                echo '<input type="number" id="donation_amount" name="donation_amount" min="1" max="' . ($target - $total) . '" value="1">';
+                ?>
+                <br>
             
                 <button type="submit" id="donateButton">Donate</button>
             </form>
@@ -80,43 +84,25 @@
             progress.style.width = achievedPercentage + '%';
         }
 
-        // Funzione per controllare che l'importo della donazione sia valido controllando anche che non superi il target
-        function checkDonationAmount(input, target, total) {
-            var donationAmount = input.value;
-            if (isNaN(donationAmount) || donationAmount <= 0 || donationAmount > target - total) {
-                input.setCustomValidity("Please enter a valid donation amount");
-            } else {
-                input.setCustomValidity("");
+        // Funzione per controllare che l'importo della donazione sia valido
+        function validateForm(target, total) {
+            var donationAmount = parseFloat(document.getElementById("donation_amount").value);
+            target = parseFloat(target);
+            total = parseFloat(total);
+
+            if (isNaN(donationAmount) || donationAmount <= 0) {
+                alert("Please enter a valid positive donation amount.");
+                return false;
+            } else if (donationAmount + total > target) {
+                alert("Exceeding the maximum threshold.");
+                return false;
             }
+            return true;
+
         }
 
-
-
-
-
-
-
-
     </script>
+    <?php include('../partials/footer.php'); ?>
 </body>
 
 </html>
-
-
-
-<!--         function checkDonationAmount(input) {
-            var maxDonation = 10000; 
-
-            var donationAmount = parseFloat(input.value);
-
-            if (isNaN(donationAmount) || donationAmount < 0) 
-                alert("Please enter a valid positive donation amount.");
-            else if (donationAmount > maxDonation) {
-                alert("Maximum donation amount exceeded. The maximum allowed is $" + maxDonation + ".");
-                input.value = maxDonation;
-            } else if (donationAmount +  echo $total; ?> > maxDonation) {
-                alert("Exceeding the maximum threshold.");
-                input.value = maxDonation - echo $total; ?>;
-            }
-        }
-         -->
