@@ -30,25 +30,29 @@
                 $conn = readWriteConnection();
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $newFirstname = !empty($_POST['firstname']) ? clean_input($_POST['firstname']) : null;
-                    $newLastname = !empty($_POST['lastname']) ? clean_input($_POST['lastname']) : null;
-                    $newEmail = !empty($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : null;
-                    if (!$newEmail)
+                    $newFirstname = isset($_POST['firstname']) ? clean_input($_POST['firstname']) : null;
+                    $newLastname = isset($_POST['lastname']) ? clean_input($_POST['lastname']) : null;
+                    $newEmail = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) : null;
+                    if (!$newEmail || $newEmail == null)
                         die('Error: invalid email.');
 
-                    if ($userEmail != $newEmail) 
+                    $oldEmail = $userEmail;
+                    if (strcmp($userEmail, $newEmail) != 0) {
+                        $userEmail = $newEmail;
                         $_SESSION['username'] = $newEmail;
-
-                    $newCity = !empty($_POST['city']) ? clean_input($_POST['city']) : null;
-                    $newAboutme = !empty($_POST['aboutme']) ? clean_input($_POST['aboutme']) : null;
-                    $newSocial = !empty($_POST['social']) ? clean_input($_POST['social']) : null;
+                    }
+                    $newCity = isset($_POST['city']) ? clean_input($_POST['city']) : null;
+                    $newAboutme = isset($_POST['aboutme']) ? clean_input($_POST['aboutme']) : null;
+                    $newSocial = isset($_POST['social']) ? clean_input($_POST['social']) : null;
 
                     $updateQuery = "UPDATE users SET firstname = ?, lastname = ?, email = ?, city = ?, aboutme = ?, social = ? WHERE email = ?";
                     $updateParams = "sssssss";
-                    $updateElem = array($newFirstname, $newLastname, $newEmail ,$newCity, $newAboutme, $newSocial, $userEmail);
-                    if(!execStmt($conn, $updateQuery, $updateElem, $updateParams)) {
-                        $_SESSION['username'] = $userEmail;
-                        die("Something went wrong");
+                    $updateElem = array($newFirstname, $newLastname, $newEmail ,$newCity, $newAboutme, $newSocial, $oldEmail);
+                    $updateResult = execStmt($conn, $updateQuery, $updateElem, $updateParams);
+                    if(!$updateResult) {
+                        $userEmail = $oldEmail;
+                        $_SESSION['username'] = $oldEmail;
+                        die("Something went wrong with the update query");
                     }
 
                     header("Location: ../navbar/show_profile.php");
@@ -62,7 +66,7 @@
                 if(!$profileResult)
                     die("error in collect profile data query");
 
-                if ($profileResult->num_rows == 1) {
+                if ($profileResult->num_rows === 1) {
                     echo "<div class='profile-table'>";
                     while ($row = mysqli_fetch_assoc($profileResult)) {
                             echo "<form method='post' action='update_profile.php'>";

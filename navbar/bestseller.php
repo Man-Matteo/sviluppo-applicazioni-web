@@ -15,19 +15,24 @@
             require '../functions/functions.php';
             $conn = readOnlyConnection();
 
-            // Search the products in the database
+            //query to get the prducts that have the highest rating and have been ordered more than 2 times
+            //$sql = "SELECT p.productId, p.name, p.price, p.description, p.image, p.storage FROM products p WHERE p.rating >= 4";
+
+            
             $sql = "SELECT p.productId, p.name, p.price, p.description, p.storage, p.image, MAX(p.rating)
                     FROM products p 
-                    WHERE (SELECT COUNT(*)
+                    WHERE p.rating > 3 AND (SELECT COUNT(*)
                                             FROM orders o
-                                            WHERE o.productId = p.productId) > 2";
+                                            WHERE o.productId = p.productId) > 2
+                    GROUP BY p.productId;";
+            
 
             $result = $conn->query($sql);
             if(!$result)
                 die("Something went wrong while retrieving products.");
 
             // If there are results, output them
-            if ($result->num_rows > 1) {
+            if ($result->num_rows > 0) {
                     echo "<table>";
                     echo "<tr><th>Name</th><th>Price</th><th>Description</th><th>Image</th><th>Select quantity</th><th></th></tr>";
                 while($row = $result->fetch_assoc()) {
@@ -48,7 +53,6 @@
                 echo "<br>";
             }
 
-            echo "<button type='submit' onclick='location.href=\"../index.php\"'>Go back to Home</button>";
             $conn->close();
             include '../partials/footer.php';
         ?>

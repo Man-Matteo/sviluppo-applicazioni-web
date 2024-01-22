@@ -58,7 +58,7 @@
     
         return $conn;
     }
-
+    
     function readWriteConnection() {
         $host = 'localhost';
         $username = 'S4628329';
@@ -134,6 +134,6 @@
     }
 
     function clean_input($data) {
-        return htmlspecialchars($data);
+        return trim(htmlspecialchars($data));
     }
 ?>
